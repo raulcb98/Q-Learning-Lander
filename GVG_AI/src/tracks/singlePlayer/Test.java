@@ -43,8 +43,8 @@ public class Test {
 		String game = games[gameIdx][0];
 		String level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
 
-		String recordActionsFile = null;
-//		String recordActionsFile = "./SaveGames/actions_" + games[gameIdx][1] + "_lvl" + Integer.toString(levelIdx) + "_" + Integer.toString(seed) + ".txt";
+//		String recordActionsFile = null;
+		String recordActionsFile = "./SaveGames/actions_" + games[gameIdx][1] + "_lvl" + Integer.toString(levelIdx) + "_" + Integer.toString(seed) + ".txt";
 						//"actions_" + "freeway" + "_lvl" + Integer.toString(levelIdx) + "_" + Integer.toString(seed) + ".txt";
 						//null
 						// where to record the actions
@@ -59,7 +59,7 @@ public class Test {
 
 
 		// 3. This replays a game from an action file previously recorded
-//		 String name = "actions_freeway_lvl0_-799257440";
+//		 String name = "actions_lander_lvl0_-507889394";
 //		 String readActionsFile = "./SaveGames/" + name + ".txt";
 //		 ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
 

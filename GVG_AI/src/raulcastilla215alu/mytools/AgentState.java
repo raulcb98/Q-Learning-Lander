@@ -101,6 +101,9 @@ public class AgentState extends State {
 		arrayStateValues.set(State.POSFAST, perceiveFast(stateObs));
 		
 		super.update(arrayStateValues);
+		
+		String content = "Ticks = " + stateObs.getGameTick() + "\n" + this.toString();
+		IOModule.write("./History.txt", content, true);
 	}
 	
 	
@@ -241,9 +244,18 @@ public class AgentState extends State {
 	@Override
 	public String toString() {
 		String str = super.toString();
-		str +=  "\nAgent position = " + agentCellPos.toString() + "\n" +
-				"Portal position = " + portalCellPos.toString() + "\n" +
-				"Orientation = " + (int)Math.toDegrees(orientationRad) + "\n\n";
+		str +=  "Agent position = " + agentCellPos.toString() + "\n" + 
+				"Portal position = ";
+		
+		if(portalCellPos == null) {
+			str += "null" + "\n";
+		} else {
+			str += portalCellPos.toString() + "\n";
+		}
+
+		str += "Orientation = " + (int)Math.toDegrees(orientationRad) + "\n" +
+			   "************************** \n\n";
+		
 		return str;
 	}
 

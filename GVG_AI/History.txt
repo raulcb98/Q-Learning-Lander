@@ -1,0 +1,1056 @@
+Ticks = 0
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 1
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 2
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 3
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 4
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 5
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 6
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 7
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 8
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 9
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 10
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 11
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 12
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 13
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 14
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 15
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 16
+Orientation = 45
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 45
+************************** 
+
+Ticks = 17
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 18
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 19
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 20
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 21
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 34
+************************** 
+
+Ticks = 22
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 23
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 22
+************************** 
+
+Ticks = 24
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 25
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 26
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 27
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 4.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 28
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 4.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 29
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 4.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 30
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 15.0 : 4.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 31
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 15.0 : 4.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 32
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 33
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 34
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 35
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 36
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 6.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 37
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 6.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 38
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 6.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 39
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 7.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 40
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 7.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 41
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 7.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 42
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 17.0 : 8.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 43
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 17.0 : 8.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = Not an orientation value
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 1
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 2
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 3
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 4
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 5
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 6
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 7
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 8
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 9
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 10
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 11
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 12
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 13
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 14
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 15
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 16
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 17
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 18
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 19
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 20
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 21
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 22
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 23
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = false
+Agent position = 14.0 : 4.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 24
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 4.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 25
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 4.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 26
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 4.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 27
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 28
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 29
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 15.0 : 5.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 30
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 5.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 31
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 6.0
+Portal position = null
+Orientation = 11
+************************** 
+
+Ticks = 32
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 6.0
+Portal position = null
+Orientation = 0
+************************** 
+
+Ticks = 33
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 6.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 34
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 7.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 35
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 16.0 : 7.0
+Portal position = null
+Orientation = -11
+************************** 
+
+Ticks = 36
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 17.0 : 7.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 37
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 17.0 : 8.0
+Portal position = null
+Orientation = -22
+************************** 
+
+Ticks = 38
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 17.0 : 8.0
+Portal position = null
+Orientation = -34
+************************** 
+
+Ticks = 39
+Orientation = 0
+Displacement = 0
+Compass EW = West
+Compass NS = South
+Danger = false
+Fast = true
+Agent position = 17.0 : 8.0
+Portal position = null
+Orientation = -34
+************************** 
+

@@ -5,6 +5,7 @@ import core.game.StateObservation;
 import core.game.StateObservationMulti;
 import core.player.AbstractMultiPlayer;
 import ontology.Types;
+import raulcastilla215alu.mytools.AgentState;
 import tools.Direction;
 import tools.ElapsedCpuTimer;
 import tools.Utils;
@@ -14,6 +15,9 @@ import tools.Utils;
  */
 public class Agent extends AbstractMultiPlayer
 {
+	
+	private AgentState agentState;
+	
     int id; //this player's ID
 
     /**
@@ -25,6 +29,7 @@ public class Agent extends AbstractMultiPlayer
     public Agent(StateObservationMulti so, ElapsedCpuTimer elapsedTimer, int playerID)
     {
         id = playerID;
+        agentState = new AgentState((StateObservation)so);
     }
 
 
@@ -46,6 +51,8 @@ public class Agent extends AbstractMultiPlayer
         if(action == Types.ACTIONS.ACTION_NIL && useOn)
             action = Types.ACTIONS.ACTION_USE;
 
+        this.agentState.perceive((StateObservation)stateObs);
+        
         return action;
     }
 

@@ -1,6 +1,7 @@
 package raulcastilla215alu.mytools;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import core.game.StateObservation;
 import ontology.Types.ACTIONS;
@@ -91,7 +92,11 @@ public class Brain {
 		else
 			return ACTIONS.ACTION_NIL; 
 		 */
-		return ACTIONS.ACTION_LEFT;
+		
+    	Random rd = new Random();
+    	ArrayList<ACTIONS> actions = stateObs.getAvailableActions();
+		
+		return actions.get(Math.abs(rd.nextInt())%actions.size());
 	}
 	
 	/**

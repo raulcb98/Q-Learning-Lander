@@ -1104,7 +1104,7 @@ public abstract class Game {
 		// sprites.
 		this.terminationHandling(); // check for game termination.
 		this.checkTimeOut(); // Check for end of game by time steps.
-
+		
 		// if(gameTick == 0 || isEnded)
 		// fwdModel.printObservationGrid(); //uncomment this to show the
 		// observation grid.
