@@ -79,7 +79,7 @@ public class QLearning {
 	 * @return reward.
 	 */
 	private float reward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
-		
+		/*
 		float finalReward = 0;
 		
 		float currentDistance;
@@ -128,6 +128,8 @@ public class QLearning {
 		}
 		
 		return finalReward;
+		*/
+		return 0;
 	}
 	
 	/**

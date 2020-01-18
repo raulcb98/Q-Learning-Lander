@@ -73,7 +73,7 @@ public class Brain {
 	}
 	
 	/**
-	 * Percieve the information of the game and return the best action.
+	 * Perceive the information of the game and return the best action.
 	 * 
 	 * @param stateObs game observations.
 	 * @return best action.
@@ -81,6 +81,7 @@ public class Brain {
 	public ACTIONS act(StateObservation stateObs) {
 
 		currentState.perceive(stateObs);
+		/*
         int ticks = stateObs.getGameTick();
         IOModule.write("./History.txt", ticks + "\n" + currentState.toString(), true);
 		
@@ -89,6 +90,8 @@ public class Brain {
 			return qTable.getBestAction(currentState);
 		else
 			return ACTIONS.ACTION_NIL; 
+		 */
+		return ACTIONS.ACTION_LEFT;
 	}
 	
 	/**

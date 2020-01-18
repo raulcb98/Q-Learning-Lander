@@ -55,6 +55,7 @@ public class MyAgent extends AbstractPlayer {
         brain = new Brain(stateObs, savePath);
         actions = stateObs.getAvailableActions(true);
         this.stateObs = stateObs;
+        
     }
 
 
@@ -71,14 +72,27 @@ public class MyAgent extends AbstractPlayer {
 //    		System.out.println("");
 //    	}
     	
-        this.stateObs = stateObs;
+//        this.stateObs = stateObs;
     	return brain.act(stateObs);
     	
 //    	return brain.learn(stateObs);
+//    	
+//    	for(int i = 0; i < 50000; i++) {
+//    		System.out.println("hola");
+//    	}
+//    	Random rd = new Random();
+//    	ArrayList<ACTIONS> actions = stateObs.getAvailableActions();
+//    	for(int i = 0; i < actions.size(); i++) {
+//    		System.out.println(actions.get(i));
+//    	}
+    	
+    	//System.out.println(stateObs.getAvatarOrientation());
+    	
+//    	return ACTIONS.ACTION_LEFT;
     }
     
     public void close() {
-    	brain.saveQTable();
+//    	brain.saveQTable();
 //    	System.out.println("QTable saved!");
 //    	
 //    	double time = QLearning.time;

@@ -19,6 +19,7 @@ public class State {
 	private boolean danger;
 	private boolean fast;
 	
+	public static final int NUMATTRIBUTES = 6;
 	public static final int POSORIENTATION = 0;
 	public static final int POSDISPLACEMENT = 1;
 	public static final int POSCOMPASSEW = 2;
@@ -39,6 +40,9 @@ public class State {
 	public static final int ANGLE225 = 9;
 	public static final int ANGLE270 = 10;
 	public static final int ANGLE315 = 11;
+	
+	public static final int FALSE = 0;
+	public static final int TRUE = 1;
 	
 	/**
 	 * Default constructor.
@@ -84,8 +88,8 @@ public class State {
 		this.compassEW = array.get(POSCOMPASSEW);
 		this.compassNS = array.get(POSCOMPASSNS);
 		
-		this.danger = (array.get(POSDANGER) == 0 ? false : true);
-		this.fast = (array.get(POSFAST)) == 0 ? false : true;
+		this.danger = (array.get(POSDANGER) == FALSE ? false : true);
+		this.fast = (array.get(POSFAST)) == FALSE ? false : true;
 	}
 	
 	/**
