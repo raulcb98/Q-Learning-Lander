@@ -12,12 +12,12 @@ public class State {
 	/**
 	 * Private attributes
 	 */
-	private int orientation;
-	private int displacement;
-	private int compassEW;
-	private int compassNS;
-	private boolean danger;
-	private boolean fast;
+	protected int orientation;
+	protected int displacement;
+	protected int compassEW;
+	protected int compassNS;
+	protected boolean danger;
+	protected boolean fast;
 	
 	public static final int NUMATTRIBUTES = 6;
 	public static final int POSORIENTATION = 0;

@@ -67,44 +67,25 @@ public class MyAgent extends AbstractPlayer {
      * @return An action for the current state
      */
     public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
-    	
-//    	for(int i = 0; i < 10000; i++) {
-//    		System.out.println("");
-//    	}
-    	
-//        this.stateObs = stateObs;
-    	
-    	for(int i = 0; i < 20000; i++) {
-    		System.out.println("hola");
-    	}
-    	
-    	return brain.act(stateObs);
+        this.stateObs = stateObs;
     	
 //    	return brain.learn(stateObs);
-//    	
+    	return brain.act(stateObs);
 
-//    	Random rd = new Random();
-//    	ArrayList<ACTIONS> actions = stateObs.getAvailableActions();
-//    	for(int i = 0; i < actions.size(); i++) {
-//    		System.out.println(actions.get(i));
-//    	}
-    	
-    	//System.out.println(stateObs.getAvatarOrientation());
-    	
-//    	return ACTIONS.ACTION_LEFT;
     }
     
-    public void close() {
-//    	brain.saveQTable();
-//    	System.out.println("QTable saved!");
-//    	
-//    	double time = QLearning.time;
-//    	double alpha = brain.getAlpha();
+    public void close(double score) {
+    	brain.learnLastAction(score);
+    	
+    	brain.saveQTable();
+    	System.out.println("QTable saved!");
+    	
+    	double time = QLearning.time;
+    	double alpha = brain.getAlpha();
+    	System.out.println("Time = " + time + " Alpha = " + alpha);
+    	
 //    	double score = stateObs.getGameScore();
 //    	String row = Double.toString(time) + "," + Double.toString(alpha) + "," + Double.toString(score) + "\n";
-//    	
 //    	IOModule.write("./time_alpha_score.csv", row, true);
-//    	
-//		System.out.println("Time = " + time + " Alpha = " + alpha);
     }
 }

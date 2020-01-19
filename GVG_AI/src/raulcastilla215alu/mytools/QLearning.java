@@ -22,13 +22,13 @@ public class QLearning {
 	public static double time = 0;
 	private float epsilon;
 	
-	private final float CONSTANT = 80000;
-	private final float WINREWARD = 2000f;
-	private final float DEADREWARD = -1000f;
-	private final float STOPREWARD = 0;
-//	private final float STOPREWARD = -20;
-	private final float DISTANCEFACTOR = 200f;
-	private final float GOBACKREWARD = 0f;
+	private final float CONSTANT = 10000;
+	
+
+	private final float WINREWARD = 10000f;
+	private final float DEADREWARD = -15000f;
+	private final float DISTANCEREWARD = 100f;
+	private final float SLOWREWARD = 500f;
 	
 	/**
 	 * Constructor. Initializes the Qtable.
@@ -78,57 +78,16 @@ public class QLearning {
 	 * @return reward.
 	 */
 	private float reward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
-		/*
+		
 		float finalReward = 0;
 		
-		float currentDistance;
-		float previousDistance;
-		
-		// Distance reward
-		if(currentState.getCompass() == State.EAST || currentState.getCompass() == State.WEST) {
-			currentDistance = currentState.getDistanceToPortal(0);
-			previousDistance = previousState.getDistanceToPortal(0);
-		}
-		else {
-			currentDistance = currentState.getDistanceToPortal(1);
-			previousDistance = previousState.getDistanceToPortal(1);			
-		}
-		
-		float distanceReward = 0;
-		
-		//System.out.println("Current distance = " + currentDistance + " Previous Distance = " + previousDistance);
-		
-		float difDistance = previousDistance - currentDistance;
-		if (difDistance > 0)
-			distanceReward += difDistance * DISTANCEFACTOR;
-		else
-			distanceReward += Math.abs(difDistance) * GOBACKREWARD;
-		
-		finalReward += distanceReward;
-		
-		// Dead reward
-		if(currentState.isAgentDead()) {
-			if(currentState.getCompass() == State.SOUTH) {
-				finalReward += DEADREWARD * 4;
-			}
-			else {
-				finalReward += DEADREWARD;
-			}
-		}
-		
-		// Win reward
-		if(currentState.getScore() > previousState.getScore()) {
-			finalReward += WINREWARD;
-		}
-		
-		//Stop reward
-		if(currentState.getAgentPos().equals(previousState.getAgentPos())) {
-			finalReward += STOPREWARD;
-		}
+		if(currentState.isAgentDead()) finalReward += DEADREWARD;
+		if(currentState.isAgentWinner()) finalReward += WINREWARD;
+		if(previousState.isFast() && !currentState.isFast()) finalReward += SLOWREWARD;
+		if(!previousState.isFast() && currentState.isFast()) finalReward -= SLOWREWARD;
+		if(currentState.distanceToPortal() < previousState.distanceToPortal()) finalReward += DISTANCEREWARD;
 		
 		return finalReward;
-		*/
-		return 0;
 	}
 	
 	/**

@@ -881,7 +881,7 @@ public class ArcadeMachine {
         } else {
         	
         	if(players[0] instanceof  raulcastilla215alu.MyAgent) {
-        		((raulcastilla215alu.MyAgent)players[0]).close();
+        		((raulcastilla215alu.MyAgent)players[0]).close(toPlay.getScore(players[0].getPlayerID()));
         	}
         	
             // single player, let the player do all of this.

@@ -10,7 +10,6 @@ import raulcastilla215alu.matrix.QTable;
 /**
  * Defines the agent brain.
  * 
- * @author Ricardo Manuel Ruiz Diaz.
  * @author Raul Castilla Bravo.
  *
  */
@@ -24,7 +23,7 @@ public class Brain {
 	private AgentState previousState;
 	private ACTIONS lastAction;
 	private String savePath;
-	private int deadCounter;
+	//private int deadCounter;
 	private QTable qTable;
 	
 	/**
@@ -44,7 +43,7 @@ public class Brain {
 		qTable = new QTable(states , actions, savePath);
 		qLearning = new QLearning(qTable);
 		
-		deadCounter = 0;
+		//deadCounter = 0;
 	}
 	
 	/**
@@ -58,6 +57,7 @@ public class Brain {
 		currentState.perceive(stateObs);
 		lastAction = stateObs.getAvatarLastAction();
 		
+		/*
 		if(currentState.isAgentDead()) {
 			deadCounter++;
 		} else {
@@ -67,10 +67,23 @@ public class Brain {
 		if(deadCounter > 1 || !currentState.portalExist() || !previousState.portalExist()) {
 			return ACTIONS.ACTION_NIL;
 		} else {
-	        int ticks = stateObs.getGameTick();
+	        //int ticks = stateObs.getGameTick();
 	        //IOModule.write("./History.txt", ticks + "\n" + currentState.toString(), true);
 			return qLearning.learn(previousState, lastAction, currentState);
 		}
+		*/
+		return qLearning.learn(previousState, lastAction, currentState);
+	}
+	
+	public void learnLastAction(double score) {
+		if(score == 0) {
+			currentState.setAgentDead(true);
+			currentState.setAgentWinner(false);
+		} else {
+			currentState.setAgentDead(false);
+			currentState.setAgentWinner(true);
+		}
+		qLearning.learn(previousState, lastAction, currentState);
 	}
 	
 	/**
@@ -91,12 +104,13 @@ public class Brain {
 			return qTable.getBestAction(currentState);
 		else
 			return ACTIONS.ACTION_NIL; 
-		 */
+		 
 		
 		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
 		IOModule.write("./History.txt", content, true);
+		*/
 		
-		return ACTIONS.ACTION_RIGHT; 
+		return qTable.getBestAction(currentState);
 	}
 	
 	/**

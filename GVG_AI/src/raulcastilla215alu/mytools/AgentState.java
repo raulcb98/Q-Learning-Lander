@@ -23,11 +23,12 @@ public class AgentState extends State {
 	private float orientationRad;
 	
 	private boolean agentDead;
+	private boolean agentWinner;
 	private int blockSize;
 	private double score;
 	
 	private float angle_diff = 0.2f;
-	private float speed_limit = 9.35f;
+	private float speed_limit = 6;     //9.35f;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	
@@ -71,7 +72,8 @@ public class AgentState extends State {
 		// AgentState attributes
 		agentCellPos = calculateCell(stateObs.getAvatarPosition(), stateObs.getBlockSize());	
 		score = stateObs.getGameScore();
-		agentDead = isDead(stateObs);
+		agentDead = false;
+		agentWinner = false;
 		updatePortalCellPos(stateObs);
 		
 		// Initialize arrayStateValues
@@ -310,16 +312,6 @@ public class AgentState extends State {
 		return cellCoords;
 	}
 	
-	/**
-	 * Checks if the agent is dead.
-	 * 
-	 * @param stateObs game information.
-	 * @return true if the agent is dead.
-	 */
-	private boolean isDead(StateObservation stateObs) {
-		Vector2d orientation = stateObs.getAvatarOrientation();
-		return orientation.equals(new Vector2d(0,1));
-	}
 	
 	/**
 	 * Calculate the euclidean distance between two points.
@@ -328,12 +320,19 @@ public class AgentState extends State {
 	 * @param posB point B.
 	 * @return euclidean distance between the two points.
 	 */
-	public float distance(Vector2d posA, Vector2d posB) {
+	public static float distance(Vector2d posA, Vector2d posB) {
 		
 		float difX = (float)(posA.x - posB.x);
 		float difY = (float)(posA.y - posB.y);
 		
 		return (float)Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
+	}
+	
+	/**
+	 * @return euclidean distance between agent and nearest portal.
+	 */
+	public float distanceToPortal() {
+		return distance(this.agentCellPos, this.portalCellPos);
 	}
 	
 	/**
@@ -356,6 +355,18 @@ public class AgentState extends State {
 		return str;
 	}
 
+	public void setAgentDead(boolean value) {
+		this.agentDead = value;
+	}
+	
+	public void setAgentWinner(boolean value) {
+		this.agentWinner = value;
+	}
+	
+	public boolean isAgentWinner() {
+		return this.agentWinner;
+	}
+	
 	/**
 	 * @return true if the agent is dead.
 	 */
@@ -383,6 +394,13 @@ public class AgentState extends State {
 	 */
 	public Vector2d getAgentPos() {
 		return agentCellPos;
+	}
+	
+	/**
+	 * @return True if the agents moves fast.
+	 */
+	public boolean isFast() {
+		return fast;
 	}
 	
 	/*
