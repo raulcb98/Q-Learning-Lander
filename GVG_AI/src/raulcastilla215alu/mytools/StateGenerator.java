@@ -97,21 +97,6 @@ public class StateGenerator {
 		return output;
 	}
 	
-	/**
-	 * Create an array list with zeros.
-	 * 
-	 * @param length array length.
-	 * @return Array list with zeros. 
-	 */
-	private static ArrayList<Integer> zeros(int length){
-		ArrayList<Integer> aux = new ArrayList<>();
-		
-		for(int i =0;i < length;i++) {
-			aux.add(0);
-		}
-		
-		return aux;
-	}
 	
 	/**
 	 * Generates all possible combinations using the values and length specified.
@@ -176,29 +161,6 @@ public class StateGenerator {
 	 * @return true if overcomes all restrictions.
 	 */
 	private static boolean isValid(ArrayList<Integer> comb) {
-		/*
-		boolean frontBlock = (comb.get(State.POSFRONTBLOCK) == 0 ? false : true);
-		boolean backBlock = (comb.get(State.POSBACKBLOCK) == 0 ? false : true);
-		boolean leftBlock = (comb.get(State.POSLEFTBLOCK) == 0 ? false : true);
-		boolean rightBlock = (comb.get(State.POSRIGHTBLOCK) == 0 ? false : true);
-		
-		boolean frontDanger = (comb.get(State.POSFRONTDANGER) == 0 ? false : true);
-		boolean backDanger = (comb.get(State.POSBACKDANGER) == 0 ? false : true);
-		boolean leftDanger = (comb.get(State.POSLEFTDANGER) == 0 ? false : true);
-		boolean rightDanger = (comb.get(State.POSRIGHTDANGER) == 0 ? false : true);
-		
-		int oracle = comb.get(State.POSORACLE);
-		
-		if(frontBlock && backBlock && leftBlock && rightBlock) return false;
-		//if(leftDanger && rightDanger) return false;
-		//if((leftDanger || rightDanger) && (leftBlock || rightBlock)) return false;
-		if(frontDanger && frontBlock) return false;
-		if(backDanger && backBlock) return false;
-		if(!frontBlock && !backBlock && oracle != State.NONEHOLE) return false;
-		if(rightBlock && oracle == State.RIGHTHOLE) return false;
-		if(leftBlock && oracle == State.LEFTHOLE) return false;		
-		
-		*/
 		return true;	
 	}
 	

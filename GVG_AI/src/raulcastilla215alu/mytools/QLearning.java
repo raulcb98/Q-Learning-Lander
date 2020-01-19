@@ -8,7 +8,6 @@ import raulcastilla215alu.matrix.QTable;
 /**
  *  Defines the Q-learning algorithm.
  *  
- * @author Ricardo Manuel Ruiz Diaz.
  * @author Raul Castilla Bravo.
  *
  */

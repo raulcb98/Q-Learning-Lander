@@ -37,7 +37,7 @@ public class Test {
 
 		// Game and level to play
 		int gameIdx = 117; //43
-		int levelIdx = 0; // level names from 0 to 4 (game_lvlN.txt).
+		int levelIdx = 5; // level names from 0 to 4 (game_lvlN.txt).
 		String gameName = games[gameIdx][1];
 		System.out.println(gameName);
 		String game = games[gameIdx][0];
@@ -59,7 +59,7 @@ public class Test {
 
 
 		// 3. This replays a game from an action file previously recorded
-//		 String name = "actions_lander_lvl0_-507889394";
+//		 String name = "actions_lander_lvl5_126497833";
 //		 String readActionsFile = "./SaveGames/" + name + ".txt";
 //		 ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
 

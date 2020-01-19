@@ -15,7 +15,6 @@ import raulcastilla215alu.mytools.IOModule;
  * Read a CSV file and store the information into a matrix.
  * 
  * @author Raul Castilla Bravo.
- * @author Ricardo Manuel Ruiz Diaz.
  */
 public class Matrix {
 

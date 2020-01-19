@@ -10,7 +10,6 @@ import raulcastilla215alu.mytools.*;
 /**
  * Defines a Qtable.
  * @author Ricardo Manuel Ruiz Diaz.
- * @author Raul Castilla Bravo.
  */
 public class QTable extends Matrix {
 

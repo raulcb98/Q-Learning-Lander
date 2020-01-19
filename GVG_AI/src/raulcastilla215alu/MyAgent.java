@@ -73,13 +73,16 @@ public class MyAgent extends AbstractPlayer {
 //    	}
     	
 //        this.stateObs = stateObs;
+    	
+    	for(int i = 0; i < 20000; i++) {
+    		System.out.println("hola");
+    	}
+    	
     	return brain.act(stateObs);
     	
 //    	return brain.learn(stateObs);
 //    	
-//    	for(int i = 0; i < 50000; i++) {
-//    		System.out.println("hola");
-//    	}
+
 //    	Random rd = new Random();
 //    	ArrayList<ACTIONS> actions = stateObs.getAvailableActions();
 //    	for(int i = 0; i < actions.size(); i++) {

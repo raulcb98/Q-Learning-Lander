@@ -93,10 +93,10 @@ public class Brain {
 			return ACTIONS.ACTION_NIL; 
 		 */
 		
-    	Random rd = new Random();
-    	ArrayList<ACTIONS> actions = stateObs.getAvailableActions();
+		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
+		IOModule.write("./History.txt", content, true);
 		
-		return actions.get(Math.abs(rd.nextInt())%actions.size());
+		return ACTIONS.ACTION_RIGHT; 
 	}
 	
 	/**
