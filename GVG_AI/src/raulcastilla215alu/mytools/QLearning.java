@@ -24,11 +24,10 @@ public class QLearning {
 	
 	private final float CONSTANT = 10000;
 	
+	private final float WINREWARD = 1000f;
+	private final float DEADREWARD = -500f;
+	private final float SIMPLEREWARD = 100f;
 
-	private final float WINREWARD = 10000f;
-	private final float DEADREWARD = -15000f;
-	private final float DISTANCEREWARD = 100f;
-	private final float SLOWREWARD = 500f;
 	
 	/**
 	 * Constructor. Initializes the Qtable.
@@ -82,10 +81,18 @@ public class QLearning {
 		float finalReward = 0;
 		
 		if(currentState.isAgentDead()) finalReward += DEADREWARD;
-		if(currentState.isAgentWinner()) finalReward += WINREWARD;
-		if(previousState.isFast() && !currentState.isFast()) finalReward += SLOWREWARD;
-		if(!previousState.isFast() && currentState.isFast()) finalReward -= SLOWREWARD;
-		if(currentState.distanceToPortal() < previousState.distanceToPortal()) finalReward += DISTANCEREWARD;
+		if(currentState.isAgentWinner()) 
+			if (previousState.isFast() || currentState.isFast()) finalReward += DEADREWARD;
+			else finalReward += WINREWARD;
+		
+		if(!currentState.isFast()) finalReward += SIMPLEREWARD;
+		else finalReward -= SIMPLEREWARD;
+		
+		if(currentState.isOrientationInGreenZone()) finalReward += SIMPLEREWARD;
+		else finalReward -= SIMPLEREWARD;
+		
+		if(currentState.isDisplacementInGreenZone()) finalReward += SIMPLEREWARD;
+		else finalReward -= SIMPLEREWARD;
 		
 		return finalReward;
 	}

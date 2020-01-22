@@ -71,7 +71,6 @@ public class MyAgent extends AbstractPlayer {
     	
 //    	return brain.learn(stateObs);
     	return brain.act(stateObs);
-
     }
     
     public void close(double score) {

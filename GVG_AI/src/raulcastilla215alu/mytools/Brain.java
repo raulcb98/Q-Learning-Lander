@@ -47,7 +47,7 @@ public class Brain {
 	}
 	
 	/**
-	 * Percieve the information of the game and learn.
+	 * Perceive the information of the game and learn.
 	 * 
 	 * @param stateObs game observations.
 	 * @return next game action.
@@ -57,21 +57,6 @@ public class Brain {
 		currentState.perceive(stateObs);
 		lastAction = stateObs.getAvatarLastAction();
 		
-		/*
-		if(currentState.isAgentDead()) {
-			deadCounter++;
-		} else {
-			deadCounter = 0;
-		}
-		
-		if(deadCounter > 1 || !currentState.portalExist() || !previousState.portalExist()) {
-			return ACTIONS.ACTION_NIL;
-		} else {
-	        //int ticks = stateObs.getGameTick();
-	        //IOModule.write("./History.txt", ticks + "\n" + currentState.toString(), true);
-			return qLearning.learn(previousState, lastAction, currentState);
-		}
-		*/
 		return qLearning.learn(previousState, lastAction, currentState);
 	}
 	
@@ -104,12 +89,13 @@ public class Brain {
 			return qTable.getBestAction(currentState);
 		else
 			return ACTIONS.ACTION_NIL; 
-		*/
+		
 		
 		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
 		IOModule.write("./History.txt", content, true);
+		*/
 		
-		return ACTIONS.ACTION_LEFT; 
+		return qTable.getBestAction(currentState);
 	}
 	
 	/**
