@@ -24,9 +24,10 @@ public class QLearning {
 	
 	private final float CONSTANT = 10000;
 	
-	private final float WINREWARD = 1000f;
-	private final float DEADREWARD = -500f;
+	private final float WINREWARD = 2000f;
+	private final float DEADREWARD = -2000f;
 	private final float SIMPLEREWARD = 100f;
+	private final float BIGREWARD = 400f;
 
 	
 	/**
@@ -80,11 +81,13 @@ public class QLearning {
 		
 		float finalReward = 0;
 		
+		// Win/dead reward
 		if(currentState.isAgentDead()) finalReward += DEADREWARD;
 		if(currentState.isAgentWinner()) 
 			if (previousState.isFast() || currentState.isFast()) finalReward += DEADREWARD;
 			else finalReward += WINREWARD;
 		
+		// Ships moves reward
 		if(!currentState.isFast()) finalReward += SIMPLEREWARD;
 		else finalReward -= SIMPLEREWARD;
 		
@@ -93,6 +96,14 @@ public class QLearning {
 		
 		if(currentState.isDisplacementInGreenZone()) finalReward += SIMPLEREWARD;
 		else finalReward -= SIMPLEREWARD;
+		
+		
+		// Land rewards
+		if(currentState.isAgentOverPortal()) 
+			finalReward += BIGREWARD;
+
+		if (previousState.isAgentOverPortal() && !currentState.isAgentOverPortal())
+			finalReward -= BIGREWARD;
 		
 		return finalReward;
 	}

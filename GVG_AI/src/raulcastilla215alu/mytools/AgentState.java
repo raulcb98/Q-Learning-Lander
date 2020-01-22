@@ -39,6 +39,9 @@ public class AgentState extends State {
 	private static final int UPPER = 0;
 	private static final int DOWN = 1;
 	
+	private static final int LEFT = 0;
+	private static final int RIGHT = 1;
+	
 	
 	/**
 	 * Constructor.
@@ -84,7 +87,9 @@ public class AgentState extends State {
 		score = stateObs.getGameScore();
 		agentDead = false;
 		agentWinner = false;
-		updatePortalCellPos(stateObs);
+		if(this.portalCellPos == null) {
+			updatePortalCellPos(stateObs);
+		}
 		
 		// Initialize arrayStateValues
 		ArrayList<Integer> arrayStateValues = new ArrayList<>();
@@ -156,17 +161,6 @@ public class AgentState extends State {
 	
 	
 	/**
-	 * Update portalCellPos with the nearest portal observation.
-	 * 
-	 * @param stateObs Game observations.
-	 */
-	private void updatePortalCellPos(StateObservation stateObs) {
-		ArrayList<Observation> portalsPos = findPortals(stateObs);
-		this.portalCellPos = calculateCell(getNearest(portalsPos).position, this.blockSize);
-	}
-	
-	
-	/**
 	 * Get the nearest observation to the agent.
 	 * 
 	 * @param obs Array of game observations.
@@ -187,6 +181,107 @@ public class AgentState extends State {
 			}
 		}
 		return nearestObs;
+	}
+	
+	
+	/**
+	 * Return true if both Observations are neighbors
+	 * @param obsA Observation
+	 * @param obsB Observation
+	 * @param axis LEFT to check if obsA is leftNeighbor of obsB or RIGHT in the other hand.
+	 * @return True if both Observations are neighbors.
+	 */
+	private boolean isNeighbor(Observation obsA, Observation obsB, int axis) {
+		Vector2d posA = calculateCell(obsA.position, blockSize);
+		Vector2d posB = calculateCell(obsB.position, blockSize);
+		
+		if(axis == LEFT) {
+			return (posA.y == posB.y) && (posA.x+1 == posB.x);
+		} else {
+			return (posA.y == posB.y) && (posA.x-1 == posB.x);
+		}
+		
+	}
+	
+	
+	/**
+	 * Return an array with Observations which are neighbors of each others.
+	 * 
+	 * @param arrayObs Array of Observations.
+	 * @param obs Seed of the neighborhood.
+	 * @return Array with Observations which are neighbors of each others.
+	 */
+	private ArrayList<Observation> getNeighbors(ArrayList<Observation> arrayObs, Observation obs){
+		ArrayList<Observation> arrayNeighbors = new ArrayList<>();
+		arrayNeighbors.add(obs);
+		return getNeighborsRec(arrayObs, arrayNeighbors);
+	}
+	
+	
+	/**
+	 * Recursive method for getNeighbors.
+	 * 
+	 * @param arrayObs Array of Observations.
+	 * @param obs Seed of the neighborhood.
+	 * @return Array with Observations which are neighbors of each others.
+	 */
+	private ArrayList<Observation> getNeighborsRec(ArrayList<Observation> arrayObs, 
+			                                       ArrayList<Observation> arrayNeighbors){
+		boolean modified = false;
+		Observation o;
+		
+		// Left part
+		Observation leftNeighbor = arrayNeighbors.get(0);
+		for(int i = 0; i < arrayObs.size(); i++) {
+			o = arrayObs.get(i);
+			if(isNeighbor(o, leftNeighbor, LEFT)) {
+				arrayNeighbors.add(0, o);
+				arrayObs.remove(o);
+				modified = true;
+			}
+		}
+		
+		// Right part
+		Observation rightNeighbor = arrayNeighbors.get(arrayNeighbors.size()-1);
+		for(int i = 0; i < arrayObs.size(); i++) {
+			o = arrayObs.get(i);
+			if(isNeighbor(o, rightNeighbor, RIGHT)) {
+				arrayNeighbors.add(o);
+				arrayObs.remove(o);
+				modified = true;
+			}
+		}
+		
+		if(modified) {
+			return getNeighborsRec(arrayObs, arrayNeighbors);
+		} else {
+			return arrayNeighbors;
+		}
+	}
+	
+	
+	/**
+	 * Return the middle neighbor of the neighborhood.
+	 * 
+	 * @param arrayNeighbors Array of Observations
+	 * @return middle neighbor.
+	 */
+	private Observation getMiddleNeighbor(ArrayList<Observation> arrayNeighbors) {
+		int index = Math.round(arrayNeighbors.size()/2-1);
+		return arrayNeighbors.get(index);
+	}
+	
+
+	/**
+	 * Update portalCellPos with the nearest portal observation.
+	 * 
+	 * @param stateObs Game observations.
+	 */
+	private void updatePortalCellPos(StateObservation stateObs) {
+		ArrayList<Observation> portals = findPortals(stateObs);
+		Observation nearestPortal = getNearest(portals);
+		ArrayList<Observation> arrayNeighbors = getNeighbors(portals, nearestPortal);
+		this.portalCellPos = calculateCell(getMiddleNeighbor(arrayNeighbors).position, blockSize);
 	}
 	
 	
@@ -405,7 +500,7 @@ public class AgentState extends State {
 	 * @return euclidean distance between agent and nearest portal.
 	 */
 	public float distanceToPortal() {
-		return distance(this.agentCellPos, this.portalCellPos);
+		return (float)Math.abs(this.agentCellPos.x - this.portalCellPos.x);
 	}
 	
 	
@@ -520,6 +615,16 @@ public class AgentState extends State {
 		return displacement == State.CENTRALGREENZONE || 
 			   displacement == State.LEFTGREENZONE ||
 			   displacement == State.RIGHTGREENZONE;
+	}
+	
+	
+	/**
+	 * True if the agent is over the portal.
+	 * 
+	 * @return True if the agent is over the portal.
+	 */
+	public boolean isAgentOverPortal() {
+		return overPosition(this.agentCellPos, this.portalCellPos);
 	}
 	
 	

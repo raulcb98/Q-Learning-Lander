@@ -1,0 +1,880 @@
+Ticks = 0
+Orientation = Right red zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 1
+Orientation = Right red zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 11.459156
+************************** 
+
+Ticks = 2
+Orientation = Right red zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 22.918312
+************************** 
+
+Ticks = 3
+Orientation = Right red zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 34.37747
+************************** 
+
+Ticks = 4
+Orientation = Right green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 45.836624
+************************** 
+
+Ticks = 5
+Orientation = Right green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 57.29578
+************************** 
+
+Ticks = 6
+Orientation = Right green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 7
+Orientation = Central green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 8
+Orientation = Central green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 91.673256
+************************** 
+
+Ticks = 9
+Orientation = Central green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 10
+Orientation = Left green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 11
+Orientation = Left green zone
+Displacement = Central green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 12
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 13
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 14
+Orientation = Central green zone
+Displacement = Left red zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 15
+Orientation = Central green zone
+Displacement = Left green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 16
+Orientation = Central green zone
+Displacement = Left green zone
+Compass = West
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 17
+Orientation = Central green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 18
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 19
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 20
+Orientation = Left red zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 21
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 22
+Orientation = Left red zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 23
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 24
+Orientation = Left red zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 25
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 2.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 26
+Orientation = Left red zone
+Displacement = Central green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 27
+Orientation = Left red zone
+Displacement = Central green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 28
+Orientation = Left red zone
+Displacement = Central green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 29
+Orientation = Left red zone
+Displacement = Central green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 30
+Orientation = Left red zone
+Displacement = Central green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 31
+Orientation = Left green zone
+Displacement = Central green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 32
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 3.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 33
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = false
+Agent position = 13.0 : 4.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 34
+Orientation = Left red zone
+Displacement = Left green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 4.0
+Portal position = 13.0 : 20.0
+Orientation value = 137.50989
+************************** 
+
+Ticks = 35
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 4.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 36
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 4.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 37
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 4.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 38
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = South
+Fast = true
+Agent position = 13.0 : 4.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 39
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 40
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 41
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 42
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 43
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 44
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 45
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 12.0 : 5.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 46
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 11.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 47
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 11.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 48
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 11.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 49
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 11.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 50
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 11.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 51
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 11.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 52
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 10.0 : 6.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 53
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 10.0 : 7.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 54
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 10.0 : 7.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 55
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 10.0 : 7.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 56
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 10.0 : 7.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 57
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 9.0 : 7.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 58
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 9.0 : 8.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 59
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 9.0 : 8.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 60
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 9.0 : 8.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 61
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 9.0 : 8.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 62
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 8.0 : 8.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 63
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 8.0 : 9.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 64
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 8.0 : 9.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 65
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 8.0 : 9.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 66
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 7.0 : 9.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 67
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 7.0 : 10.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 68
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 7.0 : 10.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 69
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 6.0 : 10.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 70
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 6.0 : 10.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 71
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 6.0 : 11.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 72
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 6.0 : 11.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 73
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 5.0 : 11.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 74
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 5.0 : 11.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 75
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 5.0 : 12.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 76
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 5.0 : 12.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 77
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 4.0 : 12.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 78
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 4.0 : 13.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 79
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 4.0 : 13.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 80
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 3.0 : 13.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 81
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 3.0 : 13.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 82
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 3.0 : 14.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 83
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 2.0 : 14.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 84
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 2.0 : 14.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 85
+Orientation = Left green zone
+Displacement = Left green zone
+Compass = East
+Fast = true
+Agent position = 2.0 : 15.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 86
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 1.0 : 15.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
+Ticks = 87
+Orientation = Left green zone
+Displacement = Left red zone
+Compass = East
+Fast = true
+Agent position = 1.0 : 15.0
+Portal position = 13.0 : 20.0
+Orientation value = 126.05073
+************************** 
+
