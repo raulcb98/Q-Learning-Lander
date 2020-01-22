@@ -104,13 +104,12 @@ public class Brain {
 			return qTable.getBestAction(currentState);
 		else
 			return ACTIONS.ACTION_NIL; 
-		 
+		*/
 		
 		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
 		IOModule.write("./History.txt", content, true);
-		*/
 		
-		return qTable.getBestAction(currentState);
+		return ACTIONS.ACTION_LEFT; 
 	}
 	
 	/**

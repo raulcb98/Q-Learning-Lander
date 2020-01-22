@@ -251,8 +251,11 @@ public class AgentState extends State {
 	 */
 	private int degreesToRegion(float degrees, int axis) {
 		
+		int upperValue = 90;
+		int downValue = 270;
+		
 		// Origin angle system value
-		float initialValue = (axis == UPPER ? 90 : 270);
+		float initialValue = (axis == UPPER ? upperValue : downValue);
 		
 		// Initial and final value of each region
 		float iniCentralGreenZone = initialValue - ANGLECENTRALGREENZONE/2;
@@ -276,16 +279,16 @@ public class AgentState extends State {
 
 		// Check region
 		if(axis == UPPER) {
-			if(degrees < iniRightGreenZone) return State.RIGHTREDZONE;
+			if(degrees < iniRightGreenZone || degrees > downValue) return State.RIGHTREDZONE;
 			if(degrees > finLeftGreenZone) return State.LEFTREDZONE;
 		} else {
-			if(degrees > finRightGreenZone) return State.RIGHTREDZONE;
+			if(degrees > finRightGreenZone || degrees < upperValue) return State.RIGHTREDZONE;
 			if(degrees < iniLeftGreenZone) return State.LEFTREDZONE;
 		}
 		
-		if(finRightGreenZone   >= degrees && degrees <= iniRightGreenZone)   return State.RIGHTGREENZONE;
-		if(finCentralGreenZone >= degrees && degrees <= iniCentralGreenZone) return State.CENTRALGREENZONE;
-		if(finLeftGreenZone    >= degrees && degrees <= iniLeftGreenZone)    return State.LEFTGREENZONE;
+		if(finRightGreenZone   >= degrees && degrees >= iniRightGreenZone)   return State.RIGHTGREENZONE;
+		if(finCentralGreenZone >= degrees && degrees >= iniCentralGreenZone) return State.CENTRALGREENZONE;
+		if(finLeftGreenZone    >= degrees && degrees >= iniLeftGreenZone)    return State.LEFTGREENZONE;
 		
 		return -1;
 	}
@@ -421,7 +424,8 @@ public class AgentState extends State {
 			str += portalCellPos.toString() + "\n";
 		}
 
-		str += "************************** \n\n";
+		str += "Orientation value = " + (float)Math.toDegrees(this.orientationRad) + "\n" +
+				"************************** \n\n";
 		
 		return str;
 	}

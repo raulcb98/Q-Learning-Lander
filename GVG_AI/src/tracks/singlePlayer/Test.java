@@ -59,7 +59,7 @@ public class Test {
 
 
 		// 3. This replays a game from an action file previously recorded
-//		 String name = "actions_lander_lvl5_126497833";
+//		 String name = "actions_lander_lvl0_-704844865";
 //		 String readActionsFile = "./SaveGames/" + name + ".txt";
 //		 ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
 
