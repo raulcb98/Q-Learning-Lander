@@ -32,6 +32,14 @@ public class AgentState extends State {
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	
+	public static final int ANGLECENTRALGREENZONE = 30;
+	public static final int ANGLELEFTGREENZONE = 30;
+	public static final int ANGLERIGHTGREENZONE = 30;
+	
+	private static final int UPPER = 0;
+	private static final int DOWN = 1;
+	
+	
 	/**
 	 * Constructor.
 	 * @param stateObs game observations.
@@ -42,6 +50,7 @@ public class AgentState extends State {
 		score = stateObs.getGameScore();
 		perceive(stateObs);
 	}
+	
 	
 	/**
 	 * Copy constructor.
@@ -61,6 +70,7 @@ public class AgentState extends State {
 		this.blockSize = obj.blockSize;
 		this.agentDead = obj.agentDead;
 	}
+	
 	
 	/**
 	 * Interprets game informations.
@@ -89,20 +99,15 @@ public class AgentState extends State {
 		// Perceive displacement
 		arrayStateValues.set(State.POSDISPLACEMENT, perceiveDisplacement(stateObs));
 		
-		// Perceive compass EW
-		arrayStateValues.set(State.POSCOMPASSEW, perceiveCompassEW());
-		
-		// Perceive compass NS
-		arrayStateValues.set(State.POSCOMPASSNS, perceiveCompassNS());
-		
-		// Perceive danger
-		arrayStateValues.set(State.POSDANGER, perceiveDanger(stateObs));
+		// Perceive compass
+		arrayStateValues.set(State.POSCOMPASS, perceiveCompass());
 		
 		// Perceive fast
 		arrayStateValues.set(State.POSFAST, perceiveFast(stateObs));
 		
 		super.update(arrayStateValues);
 	}
+	
 	
 	/**
 	 * Increase o decrease the orientationRad attribute
@@ -120,6 +125,7 @@ public class AgentState extends State {
 			orientationRad -= angle_diff;
 		}
 	}
+	
 	
 	/**
 	 * Look in game grid to find portal positions.
@@ -145,9 +151,9 @@ public class AgentState extends State {
 
 			}
 		}
-		
 		return output;
 	}
+	
 	
 	/**
 	 * Update portalCellPos with the nearest portal observation.
@@ -158,6 +164,7 @@ public class AgentState extends State {
 		ArrayList<Observation> portalsPos = findPortals(stateObs);
 		this.portalCellPos = calculateCell(getNearest(portalsPos).position, this.blockSize);
 	}
+	
 	
 	/**
 	 * Get the nearest observation to the agent.
@@ -182,6 +189,7 @@ public class AgentState extends State {
 		return nearestObs;
 	}
 	
+	
 	/**
 	 * Calculate the current orientation. 
 	 * @return current orientation. 
@@ -191,8 +199,9 @@ public class AgentState extends State {
 		if(degrees < 0) {
 			degrees += 360;
 		}
-		return degreesToConstant(degrees);
+		return degreesToRegion(degrees, UPPER);
 	}
+	
 	
 	/**
 	 * Calculate the angle which forms the vector introduced
@@ -218,6 +227,7 @@ public class AgentState extends State {
 		return value;
 	}
 	
+	
 	/**
 	 * Calculate the current displacement.
 	 * 
@@ -229,60 +239,118 @@ public class AgentState extends State {
 		dir.set(dir.x, -dir.y);
 		
 		float degrees = calculateDegreesFromVector((float)dir.x, (float)dir.y);
-		return degreesToConstant(degrees);
+		return degreesToRegion(degrees, DOWN);
 	}
 	
 	
 	/**
-	 * Cast from integer to the constant associated to angles.
+	 * Cast from integer to the region associated to angles.
 	 * 
 	 * @param degrees Angle in degrees.
-	 * @return constant associated to the angle.
+	 * @return region associated to the angle.
 	 */
-	private int degreesToConstant(float degrees) {
-		if(degrees < 45) return State.ANGLE0;
-		if(degrees < 90) return State.ANGLE45;
-		if(degrees < 135) return State.ANGLE90;
-		if(degrees < 180) return State.ANGLE135;
-		if(degrees < 225) return State.ANGLE180;
-		if(degrees < 270) return State.ANGLE225;
-		if(degrees < 315) return State.ANGLE270;
-		if(degrees <= 360) return State.ANGLE315;
+	private int degreesToRegion(float degrees, int axis) {
+		
+		// Origin angle system value
+		float initialValue = (axis == UPPER ? 90 : 270);
+		
+		// Initial and final value of each region
+		float iniCentralGreenZone = initialValue - ANGLECENTRALGREENZONE/2;
+		float finCentralGreenZone = initialValue + ANGLECENTRALGREENZONE/2;
+		
+		float iniLeftGreenZone, finLeftGreenZone, iniRightGreenZone, finRightGreenZone;
+		
+		if (axis == UPPER) {
+			iniLeftGreenZone = finCentralGreenZone;
+			finLeftGreenZone = iniLeftGreenZone + ANGLELEFTGREENZONE;
+			
+			finRightGreenZone = iniCentralGreenZone;
+			iniRightGreenZone = finRightGreenZone - ANGLERIGHTGREENZONE;
+		} else {
+			finLeftGreenZone = iniCentralGreenZone;
+			iniLeftGreenZone = finLeftGreenZone - ANGLELEFTGREENZONE;
+			
+			iniRightGreenZone = finCentralGreenZone;
+			finRightGreenZone = iniRightGreenZone + ANGLERIGHTGREENZONE;
+		}
+
+		// Check region
+		if(axis == UPPER) {
+			if(degrees < iniRightGreenZone) return State.RIGHTREDZONE;
+			if(degrees > finLeftGreenZone) return State.LEFTREDZONE;
+		} else {
+			if(degrees > finRightGreenZone) return State.RIGHTREDZONE;
+			if(degrees < iniLeftGreenZone) return State.LEFTREDZONE;
+		}
+		
+		if(finRightGreenZone   >= degrees && degrees <= iniRightGreenZone)   return State.RIGHTGREENZONE;
+		if(finCentralGreenZone >= degrees && degrees <= iniCentralGreenZone) return State.CENTRALGREENZONE;
+		if(finLeftGreenZone    >= degrees && degrees <= iniLeftGreenZone)    return State.LEFTGREENZONE;
 		
 		return -1;
 	}
 	
 	
 	/**
-	 * Calculate the current compassEW orientation taking into 
-	 * account the nearest portal position.
+	 * Calculate the current compass orientation
 	 * 
-	 * @return current compassEW orientation.
+	 * @return current compass orientation.
 	 */
-	private int perceiveCompassEW() {
-		if(this.portalCellPos == null) return State.WEST;
-		
-		if(this.agentCellPos.x >= this.portalCellPos.x) return State.WEST;
-		return State.EAST;
-	}
-	
-	/**
-	 * Calculate the current compassNS orientation taking into 
-	 * account the nearest portal position.
-	 * 
-	 * @return current compassNS orientation.
-	 */
-	private int perceiveCompassNS() {
+	private int perceiveCompass() {
 		if(this.portalCellPos == null) return State.SOUTH;
 		
-		if(this.agentCellPos.y >= this.portalCellPos.y) return State.NORTH;
+		if(overPosition(agentCellPos, portalCellPos)) return State.SOUTH;
+		if(underPosition(agentCellPos, portalCellPos)) return State.NORTH;
+		if(leftPosition(agentCellPos, portalCellPos)) return State.EAST;
+		if(rightPosition(agentCellPos, portalCellPos)) return State.WEST;
+		
 		return State.SOUTH;
 	}
 	
 	
-	private int perceiveDanger(StateObservation stateObs) {
-		return State.FALSE;
+	/**
+	 * Return true if A is over B.
+	 * @param posA Left element of the comparison.
+	 * @param posB Right element of the comparison.
+	 * @return true if A is over B.
+	 */
+	private static boolean overPosition(Vector2d posA, Vector2d posB) {
+		return posA.x == posB.x && posA.y < posB.y;
 	}
+	
+	
+	/**
+	 * Return true if A is under B.
+	 * @param posA Left element of the comparison.
+	 * @param posB Right element of the comparison.
+	 * @return true if A is under B.
+	 */
+	private static boolean underPosition(Vector2d posA, Vector2d posB) {
+		return posA.x == posB.x && posA.y > posB.y;
+	}
+	
+	
+	/**
+	 * Return true if A is left B.
+	 * @param posA Left element of the comparison.
+	 * @param posB Right element of the comparison.
+	 * @return true if A is left B.
+	 */
+	private static boolean leftPosition(Vector2d posA, Vector2d posB) {
+		return posA.x < posB.x;
+	}
+	
+	
+	/**
+	 * Return true if A is right B.
+	 * @param posA Left element of the comparison.
+	 * @param posB Right element of the comparison.
+	 * @return true if A is right B.
+	 */
+	private static boolean rightPosition(Vector2d posA, Vector2d posB) {
+		return posA.x > posB.x;
+	}
+	
 	
 	/**
 	 * Check if the avatar speed is over a limit speed.
@@ -293,6 +361,7 @@ public class AgentState extends State {
 	private int perceiveFast(StateObservation stateObs) {
 		return (stateObs.getAvatarSpeed() > speed_limit ? State.TRUE : State.FALSE);
 	}
+	
 	
 	/**
 	 * Cast the position expressed in reals values to position expressed in cell coordinates.
@@ -328,12 +397,14 @@ public class AgentState extends State {
 		return (float)Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
 	}
 	
+	
 	/**
 	 * @return euclidean distance between agent and nearest portal.
 	 */
 	public float distanceToPortal() {
 		return distance(this.agentCellPos, this.portalCellPos);
 	}
+	
 	
 	/**
 	 * Returns a String with the information of the Object.
@@ -355,24 +426,42 @@ public class AgentState extends State {
 		return str;
 	}
 
+	
+	/**
+	 * Set the agentDead value.
+	 * @param value agentDead value.
+	 */
 	public void setAgentDead(boolean value) {
 		this.agentDead = value;
 	}
 	
+	
+	/**
+	 * Set the agentWinner value.
+	 * @param value agentWinner value.
+	 */
 	public void setAgentWinner(boolean value) {
 		this.agentWinner = value;
 	}
 	
+	
+	/**
+	 * Return true if the agent has won.
+	 * @return true if the agent has won.
+	 */
 	public boolean isAgentWinner() {
 		return this.agentWinner;
 	}
 	
+	
 	/**
+	 * Return true if the agent is dead.
 	 * @return true if the agent is dead.
 	 */
 	public boolean isAgentDead() {
 		return agentDead;
 	}
+	
 	
 	/**
 	 * @return true if the portal exist.
@@ -380,6 +469,7 @@ public class AgentState extends State {
 	public boolean portalExist() {
 		return portalCellPos != null;
 	}
+	
 	
 	/**
 	 * @return current score.
@@ -396,12 +486,38 @@ public class AgentState extends State {
 		return agentCellPos;
 	}
 	
+	
 	/**
 	 * @return True if the agents moves fast.
 	 */
 	public boolean isFast() {
-		return fast;
+		return fast == TRUE;
 	}
+	
+	
+	/**
+	 * True if the orientation is in left, central or right zone.
+	 * 
+	 * @return True if the orientation is in left, central or right zone.
+	 */
+	public boolean isOrientationInGreenZone() {
+		return orientation == State.CENTRALGREENZONE ||
+			   orientation == State.LEFTGREENZONE ||
+			   orientation == State.RIGHTGREENZONE;
+	}
+	
+	
+	/**
+	 * True if the displacement is in left, central or right zone.
+	 * 
+	 * @return True if the displacement is in left, central or right zone.
+	 */
+	public boolean isDisplacementInGreenZone() {
+		return displacement == State.CENTRALGREENZONE || 
+			   displacement == State.LEFTGREENZONE ||
+			   displacement == State.RIGHTGREENZONE;
+	}
+	
 	
 	/*
 	public static void testDisplacement() {

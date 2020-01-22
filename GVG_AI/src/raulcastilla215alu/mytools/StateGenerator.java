@@ -14,39 +14,28 @@ public class StateGenerator {
 	 * @return An array of states.
 	 */
 	public static ArrayList<State> generate() {
-		int[] anglesValues = new int[8];
-		anglesValues[0] = State.ANGLE0;
-		anglesValues[1] = State.ANGLE45;
-		anglesValues[2] = State.ANGLE90;
-		anglesValues[3] = State.ANGLE135;
-		anglesValues[4] = State.ANGLE180;
-		anglesValues[5] = State.ANGLE225;
-		anglesValues[6] = State.ANGLE270;
-		anglesValues[7] = State.ANGLE315;
+		int[] zoneValues = new int[State.NUMZONEVALUES];
+		zoneValues[0] = State.CENTRALGREENZONE;
+		zoneValues[1] = State.LEFTGREENZONE;
+		zoneValues[2] = State.RIGHTGREENZONE;
+		zoneValues[3] = State.LEFTREDZONE;
+		zoneValues[4] = State.RIGHTREDZONE;
 		
-		int[] compassEWValues = new int[2];
-		compassEWValues[0] = State.EAST;
-		compassEWValues[1] = State.WEST;
+		int[] compassValues = new int[State.NUMCOMPASSVALUES];
+		compassValues[0] = State.NORTH;
+		compassValues[1] = State.SOUTH;
+		compassValues[2] = State.EAST;
+		compassValues[3] = State.WEST;
 		
-		int[] compassNSValues = new int[2];
-		compassNSValues[0] = State.NORTH;
-		compassNSValues[1] = State.SOUTH;
-		
-		int[] booleanValues = new int[2];
+		int[] booleanValues = new int[State.NUMBOOLEANVALUES];
 		booleanValues[0] = State.FALSE;
 		booleanValues[1] = State.TRUE;
 		
 		// Generation of orientation and displacement
-		ArrayList<ArrayList<Integer>> combStates = combnk(2, anglesValues);
+		ArrayList<ArrayList<Integer>> combStates = combnk(2, zoneValues);
 		
-		// Generation of compass EW values
-		combStates = addIntegerToCombination(combStates, compassEWValues);
-		
-		// Generation of compass NS values
-		combStates = addIntegerToCombination(combStates, compassNSValues);
-		
-		// Generation of danger values
-		combStates = addIntegerToCombination(combStates, booleanValues);
+		// Generation of compass values
+		combStates = addIntegerToCombination(combStates, compassValues);
 		
 		// Generation of fast values
 		combStates = addIntegerToCombination(combStates, booleanValues);

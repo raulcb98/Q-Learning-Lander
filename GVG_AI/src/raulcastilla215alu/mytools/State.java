@@ -14,35 +14,34 @@ public class State {
 	 */
 	protected int orientation;
 	protected int displacement;
-	protected int compassEW;
-	protected int compassNS;
-	protected boolean danger;
-	protected boolean fast;
+	protected int compass;
+	protected int fast;
 	
-	public static final int NUMATTRIBUTES = 6;
+	public static final int NUMATTRIBUTES = 4;
 	public static final int POSORIENTATION = 0;
 	public static final int POSDISPLACEMENT = 1;
-	public static final int POSCOMPASSEW = 2;
-	public static final int POSCOMPASSNS = 3;
-	public static final int POSDANGER = 4;
-	public static final int POSFAST = 5;
+	public static final int POSCOMPASS = 2;
+	public static final int POSFAST = 3;
 	
+	public static final int NUMCOMPASSVALUES = 4;
 	public static final int NORTH = 0;
 	public static final int SOUTH = 1; 
 	public static final int EAST = 2;
 	public static final int WEST = 3;
 	
-	public static final int ANGLE0 = 4;
-	public static final int ANGLE45 = 5;
-	public static final int ANGLE90 = 6;
-	public static final int ANGLE135 = 7;
-	public static final int ANGLE180 = 8;
-	public static final int ANGLE225 = 9;
-	public static final int ANGLE270 = 10;
-	public static final int ANGLE315 = 11;
+	public static final int NUMZONEVALUES = 5;
+	public static final int CENTRALGREENZONE = 4;
+	public static final int LEFTGREENZONE = 5;
+	public static final int RIGHTGREENZONE = 6;
+	public static final int LEFTREDZONE = 7;
+	public static final int RIGHTREDZONE = 8;
 	
+	public static final int NUMBOOLEANVALUES = 2;
 	public static final int FALSE = 0;
 	public static final int TRUE = 1;
+	
+	private String errorMessage = "Not a valid value";
+	
 	
 	/**
 	 * Default constructor.
@@ -50,6 +49,7 @@ public class State {
 	public State() {
 		
 	}
+	
 	
 	/**
 	 * Copy constructor.
@@ -59,13 +59,10 @@ public class State {
 	public State(State obj) {
 		this.orientation = obj.orientation;
 		this.displacement = obj.displacement;
-		
-		this.compassEW = obj.compassEW;
-		this.compassNS = obj.compassNS;
-		
-		this.danger = obj.danger;
+		this.compass = obj.compass;
 		this.fast = obj.fast;
 	}
+	
 	
 	/**
 	 * Constructor. 
@@ -76,6 +73,7 @@ public class State {
 		update(array);		
 	}
 	
+	
 	/**
 	 * Updates private attributes values.
 	 * 
@@ -84,13 +82,10 @@ public class State {
 	protected void update(ArrayList<Integer> array) {
 		this.orientation = array.get(POSORIENTATION);
 		this.displacement = array.get(POSDISPLACEMENT);
-		
-		this.compassEW = array.get(POSCOMPASSEW);
-		this.compassNS = array.get(POSCOMPASSNS);
-		
-		this.danger = (array.get(POSDANGER) == FALSE ? false : true);
-		this.fast = (array.get(POSFAST)) == FALSE ? false : true;
+		this.compass = array.get(POSCOMPASS);
+		this.fast = array.get(POSFAST);
 	}
+	
 	
 	/**
 	 * Returns true if the attributes are exactly the same.
@@ -100,12 +95,11 @@ public class State {
 		State aux = (State) obj;
 		return (this.orientation == aux.orientation &&
 				this.displacement == aux.displacement &&
-				this.compassEW == aux.compassEW &&
-				this.compassNS == aux.compassNS &&
-				this.danger == aux.danger &&
+				this.compass == aux.compass &&
 				this.fast == aux.fast);
 	}
 
+	
 	/**
 	 * Returns a String with the information of the object.
 	 */
@@ -115,10 +109,8 @@ public class State {
 		
 		str += "Orientation = " + orientationToString(this.orientation) + "\n" +
 			   "Displacement = " + orientationToString(this.displacement) + "\n" +
-			   "Compass EW = " + compassToString(this.compassEW) + "\n" + 
-			   "Compass NS = " + compassToString(this.compassNS) + "\n" +
-			   "Danger = " + Boolean.toString(this.danger) + "\n" + 
-			   "Fast = " + Boolean.toString(this.fast) + "\n"; 
+			   "Compass = " + compassToString(this.compass) + "\n" + 
+			   "Fast = " + booleanToString(this.fast) + "\n"; 
 		
 		return str;
 	}
@@ -132,16 +124,13 @@ public class State {
 	 */
 	private String orientationToString(int value) {
 		switch(value) {
-			case ANGLE0: return "0";
-			case ANGLE45: return "45";
-			case ANGLE90: return "90";
-			case ANGLE135: return "135";
-			case ANGLE180: return "180";
-			case ANGLE225: return "225";
-			case ANGLE270: return "270";
-			case ANGLE315: return "315";
+			case CENTRALGREENZONE: return "Central green zone";
+			case LEFTGREENZONE: return "Left green zone";
+			case RIGHTGREENZONE: return "Right green zone";
+			case LEFTREDZONE: return "Left red zone";
+			case RIGHTREDZONE: return "Right red zone";
 		}
-		return "Not an orientation value";
+		return errorMessage;
 	}
 	
 	
@@ -158,6 +147,21 @@ public class State {
 			case EAST: return "East";
 			case WEST: return "West";
 		}
-		return "Not a compass value";
+		return errorMessage;
+	}
+	
+	
+	/**
+	 * Return a String with the semantic value associated to a boolean.
+	 * 
+	 * @param value Fast value.
+	 * @return String with the semantic value associated to boolean.
+	 */
+	private String booleanToString(int value) {
+		switch(value) {
+			case TRUE: return "true";
+			case FALSE: return "false";
+		}
+		return errorMessage;
 	}
 }
