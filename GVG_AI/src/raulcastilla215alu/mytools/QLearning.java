@@ -22,7 +22,7 @@ public class QLearning {
 	public static double time = 0;
 	private float epsilon;
 	
-	private final float CONSTANT = 12000;
+	private final float CONSTANT = 28000;
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
@@ -85,7 +85,7 @@ public class QLearning {
 		if(currentState.isAgentDead()) return DEADREWARD;
 		
 		// Win reward
-		if(currentState.isAgentWinner() && !previousState.isFast() && !currentState.isFast()) 
+		if(currentState.isAgentWinner() && !previousState.isFast() && !currentState.isFast() && currentState.isAgentOverPortal()) 
 			finalReward += WINREWARD;
 		
 		// Ships moves reward
@@ -137,8 +137,8 @@ public class QLearning {
 	 * Update Q-learning constants.
 	 */
 	private void updateConstants() {
-		alpha = (float) (0.7*CONSTANT/(CONSTANT + time));
-		epsilon = (float) (0.7*CONSTANT/(CONSTANT + time));
+		alpha = (float) (0.8*CONSTANT/(CONSTANT + time));
+		epsilon = (float) (0.8*CONSTANT/(CONSTANT + time));
 		
 		time++;
 	}

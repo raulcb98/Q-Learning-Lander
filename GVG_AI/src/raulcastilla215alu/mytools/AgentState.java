@@ -28,7 +28,7 @@ public class AgentState extends State {
 	private double score;
 	
 	private float angle_diff = 0.2f;
-	private float speed_limit = 7f;     //9.35f;
+	private float speed_limit = 6f;     //9.35f;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	
