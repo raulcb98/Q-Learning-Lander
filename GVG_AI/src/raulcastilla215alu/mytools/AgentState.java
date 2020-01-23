@@ -28,7 +28,7 @@ public class AgentState extends State {
 	private double score;
 	
 	private float angle_diff = 0.2f;
-	private float speed_limit = 6;     //9.35f;
+	private float speed_limit = 7f;     //9.35f;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	
@@ -41,6 +41,9 @@ public class AgentState extends State {
 	
 	private static final int LEFT = 0;
 	private static final int RIGHT = 1;
+	
+	public static final int AXISX = 0;
+	public static final int AXISY = 1;
 	
 	
 	/**
@@ -497,10 +500,13 @@ public class AgentState extends State {
 	
 	
 	/**
-	 * @return euclidean distance between agent and nearest portal.
+	 * @return Manhattan distance between agent and nearest portal.
 	 */
-	public float distanceToPortal() {
-		return (float)Math.abs(this.agentCellPos.x - this.portalCellPos.x);
+	public int distanceToPortal(int axis) {
+		if(axis == AXISX)
+			return (int)Math.abs(this.agentCellPos.x - this.portalCellPos.x);
+		else
+			return (int)Math.abs(this.agentCellPos.y - this.portalCellPos.y);
 	}
 	
 	

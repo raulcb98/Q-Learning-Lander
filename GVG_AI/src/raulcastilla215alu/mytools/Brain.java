@@ -56,8 +56,8 @@ public class Brain {
 		previousState = new AgentState(currentState);
 		currentState.perceive(stateObs);
 		lastAction = stateObs.getAvatarLastAction();
-		
-		return qLearning.learn(previousState, lastAction, currentState);
+		lastAction = qLearning.learn(previousState, lastAction, currentState);
+		return lastAction;
 	}
 	
 	public void learnLastAction(double score) {

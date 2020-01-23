@@ -65,12 +65,12 @@ public class Test {
 
 		// 4. This plays a single game, in N levels, M times :
 		//String level2 = new String(game).replace(gameName, gameName + "_lvl" + 1);
-//		int M = 500;
-//		int N = 6;
+//		int M = 800;
+//		int N = 1;
 //		game = games[gameIdx][0];
 //		gameName = games[gameIdx][1];
-//		for(int i=5; i<N; i++){
-//			level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
+//		for(int i=0; i<N; i++){
+//			level1 = game.replace(gameName, gameName + "_lvl" + i);
 //			// ArcadeMachine.runGames(game, new String[]{level1}, M, sampleMCTSController, null);
 //			ArcadeMachine.runGames(game, new String[]{level1}, M, miJugador, null);
 //		}

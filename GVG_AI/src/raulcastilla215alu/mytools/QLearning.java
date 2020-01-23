@@ -22,7 +22,7 @@ public class QLearning {
 	public static double time = 0;
 	private float epsilon;
 	
-	private final float CONSTANT = 10000;
+	private final float CONSTANT = 12000;
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
@@ -81,11 +81,12 @@ public class QLearning {
 		
 		float finalReward = 0;
 		
-		// Win/dead reward
-		if(currentState.isAgentDead()) finalReward += DEADREWARD;
-		if(currentState.isAgentWinner()) 
-			if (previousState.isFast() || currentState.isFast()) finalReward += DEADREWARD;
-			else finalReward += WINREWARD;
+		// Dead reward
+		if(currentState.isAgentDead()) return DEADREWARD;
+		
+		// Win reward
+		if(currentState.isAgentWinner() && !previousState.isFast() && !currentState.isFast()) 
+			finalReward += WINREWARD;
 		
 		// Ships moves reward
 		if(!currentState.isFast()) finalReward += SIMPLEREWARD;
@@ -96,14 +97,20 @@ public class QLearning {
 		
 		if(currentState.isDisplacementInGreenZone()) finalReward += SIMPLEREWARD;
 		else finalReward -= SIMPLEREWARD;
-		
-		
-		// Land rewards
-		if(currentState.isAgentOverPortal()) 
-			finalReward += BIGREWARD;
 
-		if (previousState.isAgentOverPortal() && !currentState.isAgentOverPortal())
-			finalReward -= BIGREWARD;
+		
+		// Distance reward
+		int previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
+		int distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
+		int signo = 1;
+		if(distanceAxisX > previousDistanceAxisX) signo = -1;
+		
+		finalReward += signo*BIGREWARD/(distanceAxisX + 1);
+		
+		if(distanceAxisX == 0) {
+			int distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
+			finalReward += BIGREWARD/(distanceAxisY + 1);
+		}
 		
 		return finalReward;
 	}
@@ -130,8 +137,8 @@ public class QLearning {
 	 * Update Q-learning constants.
 	 */
 	private void updateConstants() {
-		alpha = (float) (0.9*CONSTANT/(CONSTANT + time));
-		epsilon = (float) (0.9*CONSTANT/(CONSTANT + time));
+		alpha = (float) (0.7*CONSTANT/(CONSTANT + time));
+		epsilon = (float) (0.7*CONSTANT/(CONSTANT + time));
 		
 		time++;
 	}
