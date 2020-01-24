@@ -29,8 +29,11 @@ public class AgentState extends State {
 	
 	private float angle_diff = 0.2f;
 	private float speed_limit = 6f;     //9.35f;
+	private int lengthOfVision = 1;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
+	public static final int ITYPEPLAYER = 1; //itype of player.
+	public static final int ITYPEBLOCK = 0;
 	
 	public static final int ANGLECENTRALGREENZONE = 30;
 	public static final int ANGLELEFTGREENZONE = 30;
@@ -108,10 +111,14 @@ public class AgentState extends State {
 		arrayStateValues.set(State.POSDISPLACEMENT, perceiveDisplacement(stateObs));
 		
 		// Perceive compass
-		arrayStateValues.set(State.POSCOMPASS, perceiveCompass());
+		int compassValue = perceiveCompass();
+		compassValue = correctCompass(stateObs, compassValue);
+		arrayStateValues.set(State.POSCOMPASS, compassValue);
 		
 		// Perceive fast
 		arrayStateValues.set(State.POSFAST, perceiveFast(stateObs));
+		
+		correctCompass(stateObs, 0);
 		
 		super.update(arrayStateValues);
 	}
@@ -410,6 +417,225 @@ public class AgentState extends State {
 	
 	
 	/**
+	 * Create an ArrayList of Observation but each element of
+	 * the array is null.
+	 * 
+	 * @param length Number of array elements.
+	 * @return ArrayList of null.
+	 */
+	private ArrayList<Observation> createNullArrayObservation(int length){
+		ArrayList<Observation> arrayObs = new ArrayList<>();
+		
+		for(int i = 0; i < length; i++) {
+			arrayObs.add(null);
+		}
+		
+		return arrayObs;
+	}
+	
+	
+	/**
+	 * Get a row of the grid game. If index row is negative or greater 
+	 * than the number of rows, it returns the first or the last row 
+	 * respectively.
+	 * 
+	 * @param stateObs Game observation.
+	 * @param indexRow Row index.
+	 * @return Row of the grid game.
+	 */
+	private ArrayList<Observation> getRow(StateObservation stateObs, int indexRow){
+		ArrayList<Observation>[][] grid = stateObs.getObservationGrid();
+		ArrayList<Observation> row = new ArrayList<>();
+		ArrayList<Observation> aux;
+		
+		if(indexRow >= grid[0].length) return createNullArrayObservation(grid.length);
+		if(indexRow < 0) indexRow = 0;
+		
+		for(int i = 0; i < grid.length; i++) {
+			aux = grid[i][indexRow];
+			if(!aux.isEmpty()) {
+				row.add(aux.get(0));
+			} else {
+				row.add(null);
+			}
+		}
+		return row;
+	}
+	
+	
+	/**
+	 * Column a row of the grid game. If index column is negative or greater 
+	 * than the number of columns, it returns the first or the last column 
+	 * respectively.
+	 * 
+	 * @param stateObs Game observation.
+	 * @param indexColumn column index.
+	 * @return Column of the grid game.
+	 */
+	private ArrayList<Observation> getColumn(StateObservation stateObs, int indexColumn){
+		ArrayList<Observation>[][] grid = stateObs.getObservationGrid();
+		ArrayList<Observation> column = new ArrayList<>();
+		ArrayList<Observation> aux;
+		
+		if(indexColumn >= grid.length) return createNullArrayObservation(grid[0].length);
+		if(indexColumn < 0) indexColumn = 0;
+		
+		for(int i = 0; i < grid[0].length; i++) {
+			aux = grid[indexColumn][i];
+			if(!aux.isEmpty()) {
+				column.add(aux.get(0));
+			} else {
+				column.add(null);
+			}
+		}
+		return column;
+	}
+	
+	
+	/**
+	 * Complete arrayA where arrayA has null values with the value of arrayB 
+	 * in that position.
+	 * 
+	 * @param arrayA Array of observations.
+	 * @param arrayB Array of observations which is projected.
+	 * @return Array with the combination of the two arrays.
+	 */
+	private ArrayList<Observation> project(ArrayList<Observation> arrayA, ArrayList<Observation> arrayB){
+		for(int i = 0; i < arrayA.size(); i++) {
+			if(arrayA.get(i) == null) {
+				arrayA.set(i, arrayB.get(i));
+			}
+		}
+		return arrayA;
+	}
+	
+	
+	/**
+	 * Projects a range of rows or columns of the grid game in a single array.
+	 * 
+	 * @param stateObs Game observation
+	 * @param ini Initial value of the range.
+	 * @param fin Final value of the range. This index is included in the projection.
+	 * @param axis AXISY to project rows and AXISX to project columns.
+	 * @return Projection of the range of rows or columns.
+	 */
+	private ArrayList<Observation> searchWalls(StateObservation stateObs, int ini, int fin, int axis){
+		
+		ArrayList<Observation> aux;
+		ArrayList<Observation> currentWall;
+		
+		if(ini < 0) ini = 0;
+		
+		if(axis == AXISY) {
+			currentWall = getRow(stateObs, ini);
+			for(int i = ini+1; i <= fin; i++) {
+				aux = getRow(stateObs, i);
+				currentWall = project(currentWall, aux);
+			}
+		} else {
+			currentWall = getColumn(stateObs, ini);
+			for(int i = ini+1; i <= fin; i++) {
+				aux = getColumn(stateObs, i);
+				currentWall = project(currentWall, aux);
+			}
+		}
+
+		return currentWall;
+	}
+	
+	
+	/**
+	 * Return true if the position introduced has a wall observation near.
+	 * 
+	 * @param arrayObs Array of Observation.
+	 * @param pos Position under study.
+	 * @param axis AXISY if the Array of Observation is a projection of rows or AXISX 
+	 *             if it is a projection of columns.
+	 * @return True if the position introduced has a wall observation near.
+	 */
+	private boolean isCollisionPossible(ArrayList<Observation> arrayObs, Vector2d pos, int axis) {
+		int refValue = 0;
+		
+		if(axis == AXISY) {
+			refValue = (int)pos.x;
+		} else {
+			refValue = (int)pos.y;
+		}
+		
+		int pos1 = (int)(refValue-1 > 0 ? refValue-1 : 0);
+		int pos2 = (int)refValue;
+		int pos3 = (int)(refValue+1 < arrayObs.size() ? refValue+1 : refValue);
+		
+		int itype1 = (arrayObs.get(pos1) != null ? arrayObs.get(pos1).itype: -1);
+		int itype2 = (arrayObs.get(pos2) != null ? arrayObs.get(pos2).itype: -1);
+		int itype3 = (arrayObs.get(pos3) != null ? arrayObs.get(pos3).itype: -1);
+		
+		return itype1 == ITYPEBLOCK || itype2 == ITYPEBLOCK || itype3 == ITYPEBLOCK;
+	}
+	
+	
+	/**
+	 * Change the compass value if a collision is possible.
+	 * 
+	 * @param stateObs Game observation. 
+	 * @param currentCompass Current compass value.
+	 * @return Compass value corrected.
+	 */
+	private int correctCompass(StateObservation stateObs, int currentCompass) {
+		if(currentCompass == State.WEST || currentCompass == State.EAST) {
+			int iniDown = (int)agentCellPos.y+1;
+			int finDown = iniDown + lengthOfVision; 
+			
+			ArrayList<Observation> downWalls = searchWalls(stateObs, iniDown, finDown, AXISY);
+			if(isCollisionPossible(downWalls, agentCellPos, AXISY)) {
+				return State.NORTH;
+			}
+		}
+		
+		return currentCompass;
+	}
+	
+	
+	/**
+	 * Check if the agent has followed compass recommendations.
+	 * 
+	 * @param previousState Previous agent state.
+	 * @param currentState Current agent state.
+	 * @param previousCompass Previous compass value.
+	 * @return TRUE, FALSE o NONE.
+	 */
+	public static int obeyCompass(AgentState previousState, AgentState currentState, int previousCompass) {
+		Vector2d previousPos = previousState.agentCellPos;
+		Vector2d currentPos = currentState.agentCellPos;
+		
+		int difx = (int)(currentPos.x - previousPos.x);
+		int dify = (int)(currentPos.y - previousPos.y);
+		
+		
+		switch (previousCompass) {
+			case State.NORTH:
+				if(dify == 0) return State.NONE;
+				if(dify < 0) return State.TRUE;
+				if(dify > 0) return State.FALSE;
+			case State.SOUTH:
+				if(dify == 0) return State.NONE;
+				if(dify < 0) return State.FALSE;
+				if(dify > 0) return State.TRUE;
+			case State.WEST:
+				if(difx == 0) return State.NONE;
+				if(difx < 0) return State.TRUE;
+				if(difx > 0) return State.FALSE;
+			case State.EAST:
+				if(difx == 0) return State.NONE;
+				if(difx < 0) return State.FALSE;
+				if(difx > 0) return State.TRUE;
+			
+		}
+		return State.ERROR;
+	}
+	
+	
+	/**
 	 * Return true if A is over B.
 	 * @param posA Left element of the comparison.
 	 * @param posB Right element of the comparison.
@@ -631,6 +857,16 @@ public class AgentState extends State {
 	 */
 	public boolean isAgentOverPortal() {
 		return overPosition(this.agentCellPos, this.portalCellPos);
+	}
+	
+	
+	/**
+	 * Return compass value.
+	 * 
+	 * @return Compass value.
+	 */
+	public int getCompass() {
+		return this.compass;
 	}
 	
 	

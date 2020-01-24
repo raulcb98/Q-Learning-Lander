@@ -112,6 +112,11 @@ public class QLearning {
 			finalReward += BIGREWARD/(distanceAxisY + 1);
 		}
 		
+		// Compass recommendations reward
+		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
+		if(check == State.TRUE) finalReward += BIGREWARD;
+		if(check == State.FALSE) finalReward -= BIGREWARD;
+		
 		return finalReward;
 	}
 	

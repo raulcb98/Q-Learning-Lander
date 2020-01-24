@@ -40,6 +40,9 @@ public class State {
 	public static final int FALSE = 0;
 	public static final int TRUE = 1;
 	
+	public static final int NONE = -1;
+	public static final int ERROR = -99999;
+	
 	private String errorMessage = "Not a valid value";
 	
 	

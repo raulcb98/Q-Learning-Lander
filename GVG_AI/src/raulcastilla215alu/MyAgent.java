@@ -42,7 +42,7 @@ public class MyAgent extends AbstractPlayer {
 
     private Brain brain;
     private StateObservation stateObs;
-    
+    private boolean isLearning;
     
     /**
      * Public constructor with state observation and time due.
@@ -68,23 +68,32 @@ public class MyAgent extends AbstractPlayer {
      */
     public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
         this.stateObs = stateObs;
-    	
-//    	return brain.learn(stateObs);
-    	return brain.act(stateObs);
+        
+//        isLearning = true;
+        isLearning = false;
+        
+        if(isLearning) {
+        	return brain.learn(stateObs);
+        } else {
+        	return brain.act(stateObs);
+        }
+
     }
     
     public void close(double score) {
-    	brain.learnLastAction(score);
-    	
-    	brain.saveQTable();
-    	System.out.println("QTable saved!");
-    	
-    	double time = QLearning.time;
-    	double alpha = brain.getAlpha();
-    	System.out.println("Time = " + time + " Alpha = " + alpha);
-    	
-//    	double score = stateObs.getGameScore();
-//    	String row = Double.toString(time) + "," + Double.toString(alpha) + "," + Double.toString(score) + "\n";
-//    	IOModule.write("./time_alpha_score.csv", row, true);
+    	if(isLearning) {
+        	brain.learnLastAction(score);
+        	
+        	brain.saveQTable();
+        	System.out.println("QTable saved!");
+        	
+        	double time = QLearning.time;
+        	double alpha = brain.getAlpha();
+        	System.out.println("Time = " + time + " Alpha = " + alpha);
+        	
+//        	double score = stateObs.getGameScore();
+//        	String row = Double.toString(time) + "," + Double.toString(alpha) + "," + Double.toString(score) + "\n";
+//        	IOModule.write("./time_alpha_score.csv", row, true);
+    	}
     }
 }
