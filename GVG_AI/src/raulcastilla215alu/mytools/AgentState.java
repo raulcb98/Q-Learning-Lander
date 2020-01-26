@@ -31,7 +31,8 @@ public class AgentState extends State {
 	
 	private float angle_diff = 0.2f;
 	private float speed_limit = 5.5f;     //9.35f;
-	private int lengthOfVision = 2;
+	private int lengthOfVision = 3;
+	private Observation nearestWall;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	public static final int ITYPEPLAYER = 1; //itype of player.
@@ -50,6 +51,7 @@ public class AgentState extends State {
 	public static final int AXISX = 0;
 	public static final int AXISY = 1;
 	
+	public static final int DEFAULTWALLDISTANCE = 10;
 	
 	/**
 	 * Constructor.
@@ -120,7 +122,7 @@ public class AgentState extends State {
 		
 		// Perceive compass
 		int compassValue = perceiveCompass();
-//		compassValue = correctCompass(stateObs, compassValue);
+		compassValue = correctCompass(stateObs, compassValue);
 		arrayStateValues.set(State.POSCOMPASS, compassValue);
 		
 		// Perceive fast
@@ -191,11 +193,13 @@ public class AgentState extends State {
 		float nearestDistance = 100000;
 		
 		for(int i = 0; i < obs.size(); i++) {
-			currentCellPos = calculateCell(obs.get(i).position, this.blockSize);
-			currentDistance = distance(this.agentCellPos, currentCellPos);
-			if(currentDistance < nearestDistance) {
-				nearestDistance = currentDistance;
-				nearestObs = obs.get(i);
+			if(obs.get(i) != null) {
+				currentCellPos = calculateCell(obs.get(i).position, this.blockSize);
+				currentDistance = distance(this.agentCellPos, currentCellPos);
+				if(currentDistance < nearestDistance) {
+					nearestDistance = currentDistance;
+					nearestObs = obs.get(i);
+				}
 			}
 		}
 		return nearestObs;
@@ -519,6 +523,14 @@ public class AgentState extends State {
 	}
 	
 	
+	private void removeAgentObservation(ArrayList<Observation> obs) {
+		for(int i = 0; i < obs.size(); i++) {
+			if(obs.get(i) != null && obs.get(i).itype == ITYPEPLAYER) {
+				obs.set(i, null);
+			}
+		}
+	}
+	
 	/**
 	 * Projects a range of rows or columns of the grid game in a single array.
 	 * 
@@ -537,15 +549,21 @@ public class AgentState extends State {
 		
 		if(axis == AXISY) {
 			currentWall = getRow(stateObs, ini);
+			removeAgentObservation(currentWall);
+			
 			for(int i = ini+1; i <= fin; i++) {
 				aux = getRow(stateObs, i);
 				currentWall = project(currentWall, aux);
+				removeAgentObservation(currentWall);
 			}
 		} else {
 			currentWall = getColumn(stateObs, ini);
+			removeAgentObservation(currentWall);
+			
 			for(int i = ini+1; i <= fin; i++) {
 				aux = getColumn(stateObs, i);
 				currentWall = project(currentWall, aux);
+				removeAgentObservation(currentWall);
 			}
 		}
 
@@ -562,6 +580,7 @@ public class AgentState extends State {
 	 *             if it is a projection of columns.
 	 * @return True if the position introduced has a wall observation near.
 	 */
+	int contador = 0;
 	private boolean isCollisionPossible(ArrayList<Observation> arrayObs, Vector2d pos, int axis) {
 		int refValue = 0;
 		
@@ -579,6 +598,11 @@ public class AgentState extends State {
 		int itype2 = (arrayObs.get(pos2) != null ? arrayObs.get(pos2).itype: -1);
 		int itype3 = (arrayObs.get(pos3) != null ? arrayObs.get(pos3).itype: -1);
 		
+//		boolean output = itype1 == ITYPEBLOCK || itype2 == ITYPEBLOCK || itype3 == ITYPEBLOCK;
+//		if(contador >= 40) {
+//			System.out.println("True");
+//		} contador++;
+		
 		return itype1 == ITYPEBLOCK || itype2 == ITYPEBLOCK || itype3 == ITYPEBLOCK;
 	}
 	
@@ -592,16 +616,29 @@ public class AgentState extends State {
 	 */
 	private int correctCompass(StateObservation stateObs, int currentCompass) {
 		if(currentCompass == State.WEST || currentCompass == State.EAST) {
-			int iniDown = (int)agentCellPos.y+1;
+			int iniDown = (int)agentCellPos.y;
 			int finDown = iniDown + lengthOfVision; 
 			
 			ArrayList<Observation> downWalls = searchWalls(stateObs, iniDown, finDown, AXISY);
+//			for(int i = 0; i < downWalls.size(); i++) {
+//				System.out.print((downWalls.get(i) != null ? "B" : "_"));
+//			}
+//			System.out.println("");
+			this.nearestWall = null;
 			if(isCollisionPossible(downWalls, agentCellPos, AXISY)) {
+				this.nearestWall = getNearest(downWalls);
 				return State.NORTH;
 			}
 		}
 		
 		return currentCompass;
+	}
+	
+	
+	public float distanceToNearestWall() {
+		if(this.nearestWall == null) return DEFAULTWALLDISTANCE;
+		
+		return distance(this.agentRealPos, this.nearestWall.position);
 	}
 	
 	

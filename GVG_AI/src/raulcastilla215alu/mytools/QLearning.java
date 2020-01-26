@@ -28,6 +28,8 @@ public class QLearning {
 	private final float DEADREWARD = -2000f;
 	private final float SIMPLEREWARD = 100f;
 	private final float BIGREWARD = 400f;
+	
+	private final int DISTANCEFACTOR = 10;
 
 	
 	/**
@@ -105,14 +107,22 @@ public class QLearning {
 		int signo = 1;
 		if(distanceAxisX > previousDistanceAxisX) signo = -1;
 		
-		finalReward += signo*BIGREWARD/(10*distanceAxisX + 1);
+		finalReward += signo*BIGREWARD/(DISTANCEFACTOR*distanceAxisX + 1);
 		
 		if(distanceAxisX == 0) {
 			float distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
-			finalReward += BIGREWARD/(10*distanceAxisY + 1);
+			finalReward += BIGREWARD/(DISTANCEFACTOR*distanceAxisY + 1);
 		}
 		
 		// Compass recommendations reward
+		float previousWallDistance = previousState.distanceToNearestWall();
+		float currentWallDistance = currentState.distanceToNearestWall();
+		signo = 1;
+		//if(previousWallDistance > currentWallDistance) signo = -1;
+		
+		finalReward += signo*BIGREWARD*currentWallDistance;
+		
+		
 //		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
 //		if(check == State.TRUE) finalReward += BIGREWARD;
 //		if(check == State.FALSE) finalReward -= BIGREWARD;
