@@ -20,6 +20,8 @@ public class AgentState extends State {
 	 */
 	private Vector2d agentCellPos;
 	private Vector2d portalCellPos;
+	private Vector2d agentRealPos;
+	private Vector2d portalRealPos;
 	private float orientationRad;
 	
 	private boolean agentDead;
@@ -28,8 +30,8 @@ public class AgentState extends State {
 	private double score;
 	
 	private float angle_diff = 0.2f;
-	private float speed_limit = 6f;     //9.35f;
-	private int lengthOfVision = 1;
+	private float speed_limit = 5.5f;     //9.35f;
+	private int lengthOfVision = 2;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	public static final int ITYPEPLAYER = 1; //itype of player.
@@ -68,11 +70,16 @@ public class AgentState extends State {
 	 */
 	public AgentState(AgentState obj) {
 		super(obj);
-		this.agentCellPos = new Vector2d(obj.agentCellPos);
 		
+		this.agentCellPos = new Vector2d(obj.agentCellPos);
 		if(obj.portalCellPos != null) {
 			this.portalCellPos = new Vector2d(obj.portalCellPos);
 		}  
+		
+		this.agentRealPos = new Vector2d(obj.agentRealPos);
+		if(obj.portalRealPos != null) {
+			this.portalRealPos = new Vector2d(obj.portalRealPos);
+		}
 		
 		this.orientationRad = obj.orientationRad;
 		this.score = obj.score;
@@ -89,12 +96,13 @@ public class AgentState extends State {
 	public void perceive(StateObservation stateObs) {
 		
 		// AgentState attributes
-		agentCellPos = calculateCell(stateObs.getAvatarPosition(), stateObs.getBlockSize());	
+		agentRealPos = stateObs.getAvatarPosition();
+		agentCellPos = calculateCell(agentRealPos, stateObs.getBlockSize());	
 		score = stateObs.getGameScore();
 		agentDead = false;
 		agentWinner = false;
 		if(this.portalCellPos == null) {
-			updatePortalCellPos(stateObs);
+			updatePortalPos(stateObs);
 		}
 		
 		// Initialize arrayStateValues
@@ -112,7 +120,7 @@ public class AgentState extends State {
 		
 		// Perceive compass
 		int compassValue = perceiveCompass();
-		compassValue = correctCompass(stateObs, compassValue);
+//		compassValue = correctCompass(stateObs, compassValue);
 		arrayStateValues.set(State.POSCOMPASS, compassValue);
 		
 		// Perceive fast
@@ -287,11 +295,12 @@ public class AgentState extends State {
 	 * 
 	 * @param stateObs Game observations.
 	 */
-	private void updatePortalCellPos(StateObservation stateObs) {
+	private void updatePortalPos(StateObservation stateObs) {
 		ArrayList<Observation> portals = findPortals(stateObs);
 		Observation nearestPortal = getNearest(portals);
 		ArrayList<Observation> arrayNeighbors = getNeighbors(portals, nearestPortal);
-		this.portalCellPos = calculateCell(getMiddleNeighbor(arrayNeighbors).position, blockSize);
+		this.portalRealPos = getMiddleNeighbor(arrayNeighbors).position;
+		this.portalCellPos = calculateCell(portalRealPos, blockSize);
 	}
 	
 	
@@ -615,7 +624,10 @@ public class AgentState extends State {
 		switch (previousCompass) {
 			case State.NORTH:
 				if(dify == 0) return State.NONE;
-				if(dify < 0) return State.TRUE;
+				if(dify < 0) {
+					System.out.println("*********************************** Obedece NORTE *****************************");
+					return State.TRUE;
+				}
 				if(dify > 0) return State.FALSE;
 			case State.SOUTH:
 				if(dify == 0) return State.NONE;
@@ -728,11 +740,11 @@ public class AgentState extends State {
 	/**
 	 * @return Manhattan distance between agent and nearest portal.
 	 */
-	public int distanceToPortal(int axis) {
+	public float distanceToPortal(int axis) {
 		if(axis == AXISX)
-			return (int)Math.abs(this.agentCellPos.x - this.portalCellPos.x);
+			return (float)Math.abs(this.agentRealPos.x - this.portalRealPos.x);
 		else
-			return (int)Math.abs(this.agentCellPos.y - this.portalCellPos.y);
+			return (float)Math.abs(this.agentRealPos.y - this.portalRealPos.y);
 	}
 	
 	

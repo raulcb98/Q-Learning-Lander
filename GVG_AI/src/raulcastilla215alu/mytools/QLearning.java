@@ -22,7 +22,7 @@ public class QLearning {
 	public static double time = 0;
 	private float epsilon;
 	
-	private final float CONSTANT = 28000;
+	private final float CONSTANT = 10000;
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
@@ -100,23 +100,23 @@ public class QLearning {
 
 		
 		// Distance reward
-		int previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
-		int distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
+		float previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
+		float distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
 		int signo = 1;
 		if(distanceAxisX > previousDistanceAxisX) signo = -1;
 		
-		finalReward += signo*BIGREWARD/(distanceAxisX + 1);
+		finalReward += signo*BIGREWARD/(10*distanceAxisX + 1);
 		
 		if(distanceAxisX == 0) {
-			int distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
-			finalReward += BIGREWARD/(distanceAxisY + 1);
+			float distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
+			finalReward += BIGREWARD/(10*distanceAxisY + 1);
 		}
 		
 		// Compass recommendations reward
-		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
-		if(check == State.TRUE) finalReward += BIGREWARD;
-		if(check == State.FALSE) finalReward -= BIGREWARD;
-		
+//		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
+//		if(check == State.TRUE) finalReward += BIGREWARD;
+//		if(check == State.FALSE) finalReward -= BIGREWARD;
+
 		return finalReward;
 	}
 	

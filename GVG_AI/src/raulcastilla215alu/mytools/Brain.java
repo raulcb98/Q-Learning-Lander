@@ -94,7 +94,7 @@ public class Brain {
 		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
 		IOModule.write("./History.txt", content, true);
 		
-		return ACTIONS.ACTION_NIL; 
+		return qTable.getBestAction(currentState);
 	}
 	
 	/**
