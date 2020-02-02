@@ -43,8 +43,6 @@ public class Brain {
 		qTable = new QTable(states , actions, savePath);
 		visitedStates = new QTable(states, actions);
 		qLearning = new QLearning(qTable, visitedStates);
-		
-		//deadCounter = 0;
 	}
 	
 	/**
@@ -82,10 +80,11 @@ public class Brain {
 
 		currentState.perceive(stateObs);
 		
-//		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
-//		IOModule.write("./History.txt", content, true);
+		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
+		IOModule.write("./History.txt", content, true);
 		
-		return qTable.getBestAction(currentState);
+//		return qTable.getBestAction(currentState);
+		return ACTIONS.ACTION_RIGHT;
 	}
 	
 	/**

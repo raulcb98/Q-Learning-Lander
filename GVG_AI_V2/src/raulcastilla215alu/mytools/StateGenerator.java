@@ -15,18 +15,8 @@ public class StateGenerator {
 	 */
 	public static ArrayList<State> generate() {
 		int[] zoneValues = new int[State.NUMZONEVALUES];
-		zoneValues[0] = State.CENTRALGREENZONE;
-		zoneValues[1] = State.LEFTGREENZONE;
-		zoneValues[2] = State.RIGHTGREENZONE;
-		zoneValues[3] = State.LEFTREDZONE;
-		zoneValues[4] = State.RIGHTREDZONE;
-		
-		int[] compassValues = new int[State.NUMCOMPASSVALUES];
-		compassValues[0] = State.NORTH;
-		compassValues[1] = State.SOUTH;
-		compassValues[2] = State.EAST;
-		compassValues[3] = State.WEST;
-		
+		for(int i = 0; i < State.NUMZONEVALUES; i++) zoneValues[i] = i;
+
 		int[] booleanValues = new int[State.NUMBOOLEANVALUES];
 		booleanValues[0] = State.FALSE;
 		booleanValues[1] = State.TRUE;
@@ -34,8 +24,8 @@ public class StateGenerator {
 		// Generation of orientation and displacement
 		ArrayList<ArrayList<Integer>> combStates = combnk(2, zoneValues);
 		
-		// Generation of compass values
-		combStates = addIntegerToCombination(combStates, compassValues);
+		// Generation of goal values
+		combStates = addIntegerToCombination(combStates, booleanValues);
 		
 		// Generation of fast values
 		combStates = addIntegerToCombination(combStates, booleanValues);

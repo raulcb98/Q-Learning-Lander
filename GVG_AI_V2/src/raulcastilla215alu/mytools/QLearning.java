@@ -98,44 +98,6 @@ public class QLearning {
 		
 		float finalReward = 0;
 		
-		// Dead reward
-		if(currentState.isAgentDead()) return DEADREWARD;
-		
-		// Win reward
-		if(currentState.isAgentWinner() && !previousState.isFast() && !currentState.isFast() && currentState.isAgentOverPortal()) 
-			finalReward += WINREWARD;
-		
-		// Ships moves reward
-		if(!currentState.isFast()) finalReward += SIMPLEREWARD;
-		else finalReward -= SIMPLEREWARD;
-		
-		if(currentState.isOrientationInGreenZone()) finalReward += SIMPLEREWARD;
-		else finalReward -= SIMPLEREWARD;
-		
-		if(currentState.isDisplacementInGreenZone()) finalReward += SIMPLEREWARD;
-		else finalReward -= SIMPLEREWARD;
-
-		
-		// Distance reward
-		float previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
-		float distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
-		int signo = 1;
-//		if(distanceAxisX > previousDistanceAxisX) signo = -1;
-		
-		finalReward += signo*BIGREWARD/(DISTANCEFACTOR*distanceAxisX + 1);
-		
-		if(currentState.isAgentOverPortal()) {
-			float distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
-			finalReward += BIGREWARD/(DISTANCEFACTOR*distanceAxisY + 1);
-		}
-		
-		// Compass recommendations reward
-//		float previousWallDistance = previousState.distanceToNearestWall();
-//		float currentWallDistance = currentState.distanceToNearestWall();
-//		signo = 1;
-//		//if(previousWallDistance > currentWallDistance) signo = -1;
-//		
-//		finalReward += signo*BIGREWARD*currentWallDistance;
 
 		return finalReward;
 	}

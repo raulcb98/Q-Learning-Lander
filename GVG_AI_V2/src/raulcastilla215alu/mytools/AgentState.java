@@ -31,8 +31,6 @@ public class AgentState extends State {
 	
 	private float angle_diff = 0.2f;
 	private float speed_limit = 5.5f;     //9.35f;
-	private int lengthOfVision = 3;
-	private Observation nearestWall;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	public static final int ITYPEPLAYER = 1; //itype of player.
@@ -42,9 +40,6 @@ public class AgentState extends State {
 	public static final int ANGLELEFTGREENZONE = 30;
 	public static final int ANGLERIGHTGREENZONE = 30;
 	
-	private static final int UPPER = 0;
-	private static final int DOWN = 1;
-	
 	private static final int LEFT = 0;
 	private static final int RIGHT = 1;
 	
@@ -52,6 +47,8 @@ public class AgentState extends State {
 	public static final int AXISY = 1;
 	
 	public static final int DEFAULTWALLDISTANCE = 10;
+	
+	public static final int STEP = 36;
 	
 	/**
 	 * Constructor.
@@ -118,17 +115,14 @@ public class AgentState extends State {
 		arrayStateValues.set(State.POSORIENTATION, perceiveOrientation());
 		
 		// Perceive displacement
-		arrayStateValues.set(State.POSDISPLACEMENT, perceiveDisplacement(stateObs));
+		int displacementValue = perceiveDisplacement(stateObs);
+		arrayStateValues.set(State.POSDISPLACEMENT, displacementValue);
 		
-		// Perceive compass
-		int compassValue = perceiveCompass();
-//		compassValue = correctCompass(stateObs, compassValue);
-		arrayStateValues.set(State.POSCOMPASS, compassValue);
+		// Perceive goal
+		arrayStateValues.set(State.POSGOAL, perceiveGoal(displacementValue));
 		
 		// Perceive fast
 		arrayStateValues.set(State.POSFAST, perceiveFast(stateObs));
-		
-		correctCompass(stateObs, 0);
 		
 		super.update(arrayStateValues);
 	}
@@ -317,7 +311,7 @@ public class AgentState extends State {
 		if(degrees < 0) {
 			degrees += 360;
 		}
-		return degreesToRegion(degrees, UPPER);
+		return (int)(degrees/STEP);
 	}
 	
 	
@@ -357,365 +351,30 @@ public class AgentState extends State {
 		dir.set(dir.x, -dir.y);
 		
 		float degrees = calculateDegreesFromVector((float)dir.x, (float)dir.y);
-		return degreesToRegion(degrees, DOWN);
+		return (int)(degrees/STEP);
 	}
 	
 	
 	/**
-	 * Cast from integer to the region associated to angles.
+	 * Return true if the displacement is orientated to the goal.
 	 * 
-	 * @param degrees Angle in degrees.
-	 * @return region associated to the angle.
+	 * @param displacementRegion Displacement region
+	 * @return True if the displacement is orientated to the goal.
 	 */
-	private int degreesToRegion(float degrees, int axis) {
+	private int perceiveGoal(int displacementRegion) {
 		
-		int upperValue = 90;
-		int downValue = 270;
+		double x = this.portalRealPos.x - this.agentRealPos.x;
+		double y = -(this.portalRealPos.y - this.agentRealPos.y);
 		
-		// Origin angle system value
-		float initialValue = (axis == UPPER ? upperValue : downValue);
+		double norma = Math.sqrt(x*x + y*y);
+		x = x/norma;
+		y = y/norma;
 		
-		// Initial and final value of each region
-		float iniCentralGreenZone = initialValue - ANGLECENTRALGREENZONE/2;
-		float finCentralGreenZone = initialValue + ANGLECENTRALGREENZONE/2;
-		
-		float iniLeftGreenZone, finLeftGreenZone, iniRightGreenZone, finRightGreenZone;
-		
-		if (axis == UPPER) {
-			iniLeftGreenZone = finCentralGreenZone;
-			finLeftGreenZone = iniLeftGreenZone + ANGLELEFTGREENZONE;
-			
-			finRightGreenZone = iniCentralGreenZone;
-			iniRightGreenZone = finRightGreenZone - ANGLERIGHTGREENZONE;
-		} else {
-			finLeftGreenZone = iniCentralGreenZone;
-			iniLeftGreenZone = finLeftGreenZone - ANGLELEFTGREENZONE;
-			
-			iniRightGreenZone = finCentralGreenZone;
-			finRightGreenZone = iniRightGreenZone + ANGLERIGHTGREENZONE;
-		}
-
-		// Check region
-		if(axis == UPPER) {
-			if(degrees < iniRightGreenZone || degrees > downValue) return State.RIGHTREDZONE;
-			if(degrees > finLeftGreenZone) return State.LEFTREDZONE;
-		} else {
-			if(degrees > finRightGreenZone || degrees < upperValue) return State.RIGHTREDZONE;
-			if(degrees < iniLeftGreenZone) return State.LEFTREDZONE;
-		}
-		
-		if(finRightGreenZone   >= degrees && degrees >= iniRightGreenZone)   return State.RIGHTGREENZONE;
-		if(finCentralGreenZone >= degrees && degrees >= iniCentralGreenZone) return State.CENTRALGREENZONE;
-		if(finLeftGreenZone    >= degrees && degrees >= iniLeftGreenZone)    return State.LEFTGREENZONE;
-		
-		return -1;
+		float degrees = calculateDegreesFromVector((float)x, (float)y);
+		int goalRegion = (int)(degrees/STEP);
+	
+		return (goalRegion == displacementRegion ? State.TRUE : State.FALSE);
 	}
-	
-	
-	/**
-	 * Calculate the current compass orientation
-	 * 
-	 * @return current compass orientation.
-	 */
-	private int perceiveCompass() {
-		if(this.portalCellPos == null) return State.SOUTH;
-		
-		if(overPosition(agentCellPos, portalCellPos)) return State.SOUTH;
-		if(underPosition(agentCellPos, portalCellPos)) return State.NORTH;
-		if(leftPosition(agentCellPos, portalCellPos)) return State.EAST;
-		if(rightPosition(agentCellPos, portalCellPos)) return State.WEST;
-		
-		return State.SOUTH;
-	}
-	
-	
-	/**
-	 * Create an ArrayList of Observation but each element of
-	 * the array is null.
-	 * 
-	 * @param length Number of array elements.
-	 * @return ArrayList of null.
-	 */
-	private ArrayList<Observation> createNullArrayObservation(int length){
-		ArrayList<Observation> arrayObs = new ArrayList<>();
-		
-		for(int i = 0; i < length; i++) {
-			arrayObs.add(null);
-		}
-		
-		return arrayObs;
-	}
-	
-	
-	/**
-	 * Get a row of the grid game. If index row is negative or greater 
-	 * than the number of rows, it returns the first or the last row 
-	 * respectively.
-	 * 
-	 * @param stateObs Game observation.
-	 * @param indexRow Row index.
-	 * @return Row of the grid game.
-	 */
-	private ArrayList<Observation> getRow(StateObservation stateObs, int indexRow){
-		ArrayList<Observation>[][] grid = stateObs.getObservationGrid();
-		ArrayList<Observation> row = new ArrayList<>();
-		ArrayList<Observation> aux;
-		
-		if(indexRow >= grid[0].length) return createNullArrayObservation(grid.length);
-		if(indexRow < 0) indexRow = 0;
-		
-		for(int i = 0; i < grid.length; i++) {
-			aux = grid[i][indexRow];
-			if(!aux.isEmpty()) {
-				row.add(aux.get(0));
-			} else {
-				row.add(null);
-			}
-		}
-		return row;
-	}
-	
-	
-	/**
-	 * Column a row of the grid game. If index column is negative or greater 
-	 * than the number of columns, it returns the first or the last column 
-	 * respectively.
-	 * 
-	 * @param stateObs Game observation.
-	 * @param indexColumn column index.
-	 * @return Column of the grid game.
-	 */
-	private ArrayList<Observation> getColumn(StateObservation stateObs, int indexColumn){
-		ArrayList<Observation>[][] grid = stateObs.getObservationGrid();
-		ArrayList<Observation> column = new ArrayList<>();
-		ArrayList<Observation> aux;
-		
-		if(indexColumn >= grid.length) return createNullArrayObservation(grid[0].length);
-		if(indexColumn < 0) indexColumn = 0;
-		
-		for(int i = 0; i < grid[0].length; i++) {
-			aux = grid[indexColumn][i];
-			if(!aux.isEmpty()) {
-				column.add(aux.get(0));
-			} else {
-				column.add(null);
-			}
-		}
-		return column;
-	}
-	
-	
-	/**
-	 * Complete arrayA where arrayA has null values with the value of arrayB 
-	 * in that position.
-	 * 
-	 * @param arrayA Array of observations.
-	 * @param arrayB Array of observations which is projected.
-	 * @return Array with the combination of the two arrays.
-	 */
-	private ArrayList<Observation> project(ArrayList<Observation> arrayA, ArrayList<Observation> arrayB){
-		for(int i = 0; i < arrayA.size(); i++) {
-			if(arrayA.get(i) == null) {
-				arrayA.set(i, arrayB.get(i));
-			}
-		}
-		return arrayA;
-	}
-	
-	
-	private void removeAgentObservation(ArrayList<Observation> obs) {
-		for(int i = 0; i < obs.size(); i++) {
-			if(obs.get(i) != null && obs.get(i).itype == ITYPEPLAYER) {
-				obs.set(i, null);
-			}
-		}
-	}
-	
-	/**
-	 * Projects a range of rows or columns of the grid game in a single array.
-	 * 
-	 * @param stateObs Game observation
-	 * @param ini Initial value of the range.
-	 * @param fin Final value of the range. This index is included in the projection.
-	 * @param axis AXISY to project rows and AXISX to project columns.
-	 * @return Projection of the range of rows or columns.
-	 */
-	private ArrayList<Observation> searchWalls(StateObservation stateObs, int ini, int fin, int axis){
-		
-		ArrayList<Observation> aux;
-		ArrayList<Observation> currentWall;
-		
-		if(ini < 0) ini = 0;
-		
-		if(axis == AXISY) {
-			currentWall = getRow(stateObs, ini);
-			removeAgentObservation(currentWall);
-			
-			for(int i = ini+1; i <= fin; i++) {
-				aux = getRow(stateObs, i);
-				currentWall = project(currentWall, aux);
-				removeAgentObservation(currentWall);
-			}
-		} else {
-			currentWall = getColumn(stateObs, ini);
-			removeAgentObservation(currentWall);
-			
-			for(int i = ini+1; i <= fin; i++) {
-				aux = getColumn(stateObs, i);
-				currentWall = project(currentWall, aux);
-				removeAgentObservation(currentWall);
-			}
-		}
-
-		return currentWall;
-	}
-	
-	
-	/**
-	 * Return true if the position introduced has a wall observation near.
-	 * 
-	 * @param arrayObs Array of Observation.
-	 * @param pos Position under study.
-	 * @param axis AXISY if the Array of Observation is a projection of rows or AXISX 
-	 *             if it is a projection of columns.
-	 * @return True if the position introduced has a wall observation near.
-	 */
-	int contador = 0;
-	private boolean isCollisionPossible(ArrayList<Observation> arrayObs, Vector2d pos, int axis) {
-		int refValue = 0;
-		
-		if(axis == AXISY) {
-			refValue = (int)pos.x;
-		} else {
-			refValue = (int)pos.y;
-		}
-		
-		int pos1 = (int)(refValue-1 > 0 ? refValue-1 : 0);
-		int pos2 = (int)refValue;
-		int pos3 = (int)(refValue+1 < arrayObs.size() ? refValue+1 : refValue);
-		
-		int itype1 = (arrayObs.get(pos1) != null ? arrayObs.get(pos1).itype: -1);
-		int itype2 = (arrayObs.get(pos2) != null ? arrayObs.get(pos2).itype: -1);
-		int itype3 = (arrayObs.get(pos3) != null ? arrayObs.get(pos3).itype: -1);
-		
-		return itype1 == ITYPEBLOCK || itype2 == ITYPEBLOCK || itype3 == ITYPEBLOCK;
-	}
-	
-	
-	/**
-	 * Change the compass value if a collision is possible.
-	 * 
-	 * @param stateObs Game observation. 
-	 * @param currentCompass Current compass value.
-	 * @return Compass value corrected.
-	 */
-	private int correctCompass(StateObservation stateObs, int currentCompass) {
-		if(currentCompass == State.WEST || currentCompass == State.EAST) {
-			int iniDown = (int)agentCellPos.y;
-			int finDown = iniDown + lengthOfVision; 
-			
-			ArrayList<Observation> downWalls = searchWalls(stateObs, iniDown, finDown, AXISY);
-
-			this.nearestWall = null;
-			if(isCollisionPossible(downWalls, agentCellPos, AXISY)) {
-				this.nearestWall = getNearest(downWalls);
-				return State.NORTH;
-			}
-		}
-		
-		return currentCompass;
-	}
-	
-	
-	public float distanceToNearestWall() {
-		if(this.nearestWall == null) return DEFAULTWALLDISTANCE;
-		
-		return distance(this.agentRealPos, this.nearestWall.position);
-	}
-	
-	
-	/**
-	 * Check if the agent has followed compass recommendations.
-	 * 
-	 * @param previousState Previous agent state.
-	 * @param currentState Current agent state.
-	 * @param previousCompass Previous compass value.
-	 * @return TRUE, FALSE o NONE.
-	 */
-	public static int obeyCompass(AgentState previousState, AgentState currentState, int previousCompass) {
-		Vector2d previousPos = previousState.agentCellPos;
-		Vector2d currentPos = currentState.agentCellPos;
-		
-		int difx = (int)(currentPos.x - previousPos.x);
-		int dify = (int)(currentPos.y - previousPos.y);
-		
-		
-		switch (previousCompass) {
-			case State.NORTH:
-				if(dify == 0) return State.NONE;
-				if(dify < 0) return State.TRUE;
-				if(dify > 0) return State.FALSE;
-			case State.SOUTH:
-				if(dify == 0) return State.NONE;
-				if(dify < 0) return State.FALSE;
-				if(dify > 0) return State.TRUE;
-			case State.WEST:
-				if(difx == 0) return State.NONE;
-				if(difx < 0) return State.TRUE;
-				if(difx > 0) return State.FALSE;
-			case State.EAST:
-				if(difx == 0) return State.NONE;
-				if(difx < 0) return State.FALSE;
-				if(difx > 0) return State.TRUE;
-			
-		}
-		return State.ERROR;
-	}
-	
-	
-	/**
-	 * Return true if A is over B.
-	 * @param posA Left element of the comparison.
-	 * @param posB Right element of the comparison.
-	 * @return true if A is over B.
-	 */
-	private static boolean overPosition(Vector2d posA, Vector2d posB) {
-		return posA.x == posB.x && posA.y < posB.y;
-	}
-	
-	
-	/**
-	 * Return true if A is under B.
-	 * @param posA Left element of the comparison.
-	 * @param posB Right element of the comparison.
-	 * @return true if A is under B.
-	 */
-	private static boolean underPosition(Vector2d posA, Vector2d posB) {
-		return posA.x == posB.x && posA.y > posB.y;
-	}
-	
-	
-	/**
-	 * Return true if A is left B.
-	 * @param posA Left element of the comparison.
-	 * @param posB Right element of the comparison.
-	 * @return true if A is left B.
-	 */
-	private static boolean leftPosition(Vector2d posA, Vector2d posB) {
-		return posA.x < posB.x;
-	}
-	
-	
-	/**
-	 * Return true if A is right B.
-	 * @param posA Left element of the comparison.
-	 * @param posB Right element of the comparison.
-	 * @return true if A is right B.
-	 */
-	private static boolean rightPosition(Vector2d posA, Vector2d posB) {
-		return posA.x > posB.x;
-	}
-	
 	
 	/**
 	 * Check if the avatar speed is over a limit speed.
@@ -863,51 +522,7 @@ public class AgentState extends State {
 		return fast == TRUE;
 	}
 	
-	
-	/**
-	 * True if the orientation is in left, central or right zone.
-	 * 
-	 * @return True if the orientation is in left, central or right zone.
-	 */
-	public boolean isOrientationInGreenZone() {
-		return orientation == State.CENTRALGREENZONE ||
-			   orientation == State.LEFTGREENZONE ||
-			   orientation == State.RIGHTGREENZONE;
-	}
-	
-	
-	/**
-	 * True if the displacement is in left, central or right zone.
-	 * 
-	 * @return True if the displacement is in left, central or right zone.
-	 */
-	public boolean isDisplacementInGreenZone() {
-		return displacement == State.CENTRALGREENZONE || 
-			   displacement == State.LEFTGREENZONE ||
-			   displacement == State.RIGHTGREENZONE;
-	}
-	
-	
-	/**
-	 * True if the agent is over the portal.
-	 * 
-	 * @return True if the agent is over the portal.
-	 */
-	public boolean isAgentOverPortal() {
-		return overPosition(this.agentCellPos, this.portalCellPos);
-	}
-	
-	
-	/**
-	 * Return compass value.
-	 * 
-	 * @return Compass value.
-	 */
-	public int getCompass() {
-		return this.compass;
-	}
-	
-	
+
 	/*
 	public static void testDisplacement() {
 		float x;

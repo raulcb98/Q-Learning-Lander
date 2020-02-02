@@ -14,27 +14,16 @@ public class State {
 	 */
 	protected int orientation;
 	protected int displacement;
-	protected int compass;
+	protected int goal;
 	protected int fast;
 	
 	public static final int NUMATTRIBUTES = 4;
 	public static final int POSORIENTATION = 0;
 	public static final int POSDISPLACEMENT = 1;
-	public static final int POSCOMPASS = 2;
+	public static final int POSGOAL = 2;
 	public static final int POSFAST = 3;
-
-	public static final int NUMCOMPASSVALUES = 4;
-	public static final int NORTH = 0;
-	public static final int SOUTH = 1; 
-	public static final int EAST = 2;
-	public static final int WEST = 3;
 	
-	public static final int NUMZONEVALUES = 5;
-	public static final int CENTRALGREENZONE = 4;
-	public static final int LEFTGREENZONE = 5;
-	public static final int RIGHTGREENZONE = 6;
-	public static final int LEFTREDZONE = 7;
-	public static final int RIGHTREDZONE = 8;
+	public static final int NUMZONEVALUES = 10;
 	
 	public static final int NUMBOOLEANVALUES = 2;
 	public static final int FALSE = 0;
@@ -62,7 +51,7 @@ public class State {
 	public State(State obj) {
 		this.orientation = obj.orientation;
 		this.displacement = obj.displacement;
-		this.compass = obj.compass;
+		this.goal = obj.goal;
 		this.fast = obj.fast;
 	}
 	
@@ -85,7 +74,7 @@ public class State {
 	protected void update(ArrayList<Integer> array) {
 		this.orientation = array.get(POSORIENTATION);
 		this.displacement = array.get(POSDISPLACEMENT);
-		this.compass = array.get(POSCOMPASS);
+		this.goal = array.get(POSGOAL);
 		this.fast = array.get(POSFAST);
 	}
 	
@@ -98,7 +87,7 @@ public class State {
 		State aux = (State) obj;
 		return (this.orientation == aux.orientation &&
 				this.displacement == aux.displacement &&
-				this.compass == aux.compass &&
+				this.goal == aux.goal &&
 				this.fast == aux.fast);
 	}
 
@@ -110,47 +99,12 @@ public class State {
 	public String toString() {
 		String str = "";
 		
-		str += "Orientation = " + orientationToString(this.orientation) + "\n" +
-			   "Displacement = " + orientationToString(this.displacement) + "\n" +
-			   "Compass = " + compassToString(this.compass) + "\n" + 
+		str += "Orientation = " + this.orientation + "\n" +
+			   "Displacement = " + this.displacement + "\n" +
+			   "Goal = " + booleanToString(this.goal) + "\n" + 
 			   "Fast = " + booleanToString(this.fast) + "\n"; 
 		
 		return str;
-	}
-	
-	
-	/**
-	 * Return a String with the semantic value associated to orientation.
-	 * 
-	 * @param value Orientation value.
-	 * @return String with the semantic value associated to orientation.
-	 */
-	private String orientationToString(int value) {
-		switch(value) {
-			case CENTRALGREENZONE: return "Central green zone";
-			case LEFTGREENZONE: return "Left green zone";
-			case RIGHTGREENZONE: return "Right green zone";
-			case LEFTREDZONE: return "Left red zone";
-			case RIGHTREDZONE: return "Right red zone";
-		}
-		return errorMessage;
-	}
-	
-	
-	/**
-	 * Return a String with the semantic value associated to compass.
-	 * 
-	 * @param value Compass value.
-	 * @return String with the semantic value associated to compass.
-	 */
-	private String compassToString(int value) {
-		switch(value) {
-			case NORTH: return "North";
-			case SOUTH: return "South";
-			case EAST: return "East";
-			case WEST: return "West";
-		}
-		return errorMessage;
 	}
 	
 	
