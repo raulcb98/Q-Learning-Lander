@@ -122,7 +122,7 @@ public class AgentState extends State {
 		
 		// Perceive compass
 		int compassValue = perceiveCompass();
-		compassValue = correctCompass(stateObs, compassValue);
+//		compassValue = correctCompass(stateObs, compassValue);
 		arrayStateValues.set(State.POSCOMPASS, compassValue);
 		
 		// Perceive fast

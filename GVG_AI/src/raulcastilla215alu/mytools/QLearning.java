@@ -22,12 +22,12 @@ public class QLearning {
 	public static double time = 0;
 	private float epsilon;
 	
-	private final float CONSTANT = 10000;
+	private final float CONSTANT = 25000;
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
 	private final float SIMPLEREWARD = 100f;
-	private final float BIGREWARD = 400f;
+	private final float BIGREWARD = 200f;
 	
 	private final int DISTANCEFACTOR = 10;
 
@@ -105,22 +105,22 @@ public class QLearning {
 		float previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
 		float distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
 		int signo = 1;
-		if(distanceAxisX > previousDistanceAxisX) signo = -1;
+//		if(distanceAxisX > previousDistanceAxisX) signo = -1;
 		
 		finalReward += signo*BIGREWARD/(DISTANCEFACTOR*distanceAxisX + 1);
 		
-		if(distanceAxisX == 0) {
+		if(currentState.isAgentOverPortal()) {
 			float distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
 			finalReward += BIGREWARD/(DISTANCEFACTOR*distanceAxisY + 1);
 		}
 		
 		// Compass recommendations reward
-		float previousWallDistance = previousState.distanceToNearestWall();
-		float currentWallDistance = currentState.distanceToNearestWall();
-		signo = 1;
-		//if(previousWallDistance > currentWallDistance) signo = -1;
-		
-		finalReward += signo*BIGREWARD*currentWallDistance;
+//		float previousWallDistance = previousState.distanceToNearestWall();
+//		float currentWallDistance = currentState.distanceToNearestWall();
+//		signo = 1;
+//		//if(previousWallDistance > currentWallDistance) signo = -1;
+//		
+//		finalReward += signo*BIGREWARD*currentWallDistance;
 		
 		
 //		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
