@@ -1,0 +1,59 @@
+	
+	Número iteraciones = 1000;
+
+	*********** AGENT STATE ***********
+	private float speed_limit = 5.5f;     //9.35f;
+
+
+        ************ QLEARNING ********
+	private final float CONSTANT = 10000;
+	
+	private final float WINREWARD = 2000f;
+	private final float DEADREWARD = -2000f;
+	private final float SIMPLEREWARD = 100f;
+	private final float BIGREWARD = 400f;
+
+
+	private float reward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
+		
+		float finalReward = 0;
+		
+		// Dead reward
+		if(currentState.isAgentDead()) return DEADREWARD;
+		
+		// Win reward
+		if(currentState.isAgentWinner() && !previousState.isFast() && !currentState.isFast() && currentState.isAgentOverPortal()) 
+			finalReward += WINREWARD;
+		
+		// Ships moves reward
+		if(!currentState.isFast()) finalReward += SIMPLEREWARD;
+		else finalReward -= SIMPLEREWARD;
+		
+		if(currentState.isOrientationInGreenZone()) finalReward += SIMPLEREWARD;
+		else finalReward -= SIMPLEREWARD;
+		
+		if(currentState.isDisplacementInGreenZone()) finalReward += SIMPLEREWARD;
+		else finalReward -= SIMPLEREWARD;
+
+		
+		// Distance reward
+		float previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
+		float distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
+		int signo = 1;
+		if(distanceAxisX > previousDistanceAxisX) signo = -1;
+		
+		finalReward += signo*BIGREWARD/(10*distanceAxisX + 1);
+		
+		if(distanceAxisX == 0) {
+			float distanceAxisY = currentState.distanceToPortal(AgentState.AXISY);
+			finalReward += BIGREWARD/(10*distanceAxisY + 1);
+		}
+		
+		// Compass recommendations reward
+//		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
+//		if(check == State.TRUE) finalReward += BIGREWARD;
+//		if(check == State.FALSE) finalReward -= BIGREWARD;
+
+		return finalReward;
+	}
+	
