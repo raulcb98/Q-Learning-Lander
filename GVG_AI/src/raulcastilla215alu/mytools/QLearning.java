@@ -22,7 +22,9 @@ public class QLearning {
 	public static double time = 0;
 	private float epsilon;
 	
-	private final float CONSTANT = 25000;
+	private QTable visitedStates;
+	
+	private final float CONSTANT = 5000;
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
@@ -36,11 +38,13 @@ public class QLearning {
 	 * Constructor. Initializes the Qtable.
 	 * @param qTable initial Qtable.
 	 */
-	public QLearning(QTable qTable) {
+	public QLearning(QTable qTable, QTable visitedStates) {
 		this.qTable = qTable;
+		this.visitedStates = visitedStates;
 		gamma = 0.5f;
 		alpha = 0.8f;
 		epsilon = 0.8f;
+		
 	}
 	
 	/**
@@ -50,6 +54,15 @@ public class QLearning {
 	 */
 	public void saveQTable(String path) {
 		qTable.toCSV(path);
+	}
+	
+	/**
+	 * Save the visitedStates information into CSV format.
+	 * 
+	 * @param path path to save the visitedStates information.
+	 */
+	public void saveVisitedStates(String path) {
+		visitedStates.toCSV(path);
 	}
 	
 	/**
@@ -65,6 +78,8 @@ public class QLearning {
 		float sample = reward(previousState, lastAction, currentState) + gamma * qTable.getMaxQValue(currentState);
 		float newQValue = (1-alpha)*qTable.get(previousState, lastAction) + alpha*sample;
 		qTable.set(previousState, lastAction, newQValue);
+		
+		visitedStates.set(previousState, lastAction, visitedStates.get(previousState, lastAction) + 1);
 		
 		updateConstants();
 		
@@ -121,11 +136,6 @@ public class QLearning {
 //		//if(previousWallDistance > currentWallDistance) signo = -1;
 //		
 //		finalReward += signo*BIGREWARD*currentWallDistance;
-		
-		
-//		int check = AgentState.obeyCompass(previousState, currentState, previousState.getCompass());
-//		if(check == State.TRUE) finalReward += BIGREWARD;
-//		if(check == State.FALSE) finalReward -= BIGREWARD;
 
 		return finalReward;
 	}

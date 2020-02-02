@@ -22,7 +22,7 @@ public class State {
 	public static final int POSDISPLACEMENT = 1;
 	public static final int POSCOMPASS = 2;
 	public static final int POSFAST = 3;
-	
+
 	public static final int NUMCOMPASSVALUES = 4;
 	public static final int NORTH = 0;
 	public static final int SOUTH = 1; 

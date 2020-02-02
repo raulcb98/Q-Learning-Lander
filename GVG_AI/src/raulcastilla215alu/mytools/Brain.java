@@ -23,8 +23,8 @@ public class Brain {
 	private AgentState previousState;
 	private ACTIONS lastAction;
 	private String savePath;
-	//private int deadCounter;
 	private QTable qTable;
+	private QTable visitedStates;
 	
 	/**
 	 * Constructor. Initializes the brain with the observations introduced by parameters.
@@ -41,7 +41,8 @@ public class Brain {
         ArrayList<State> states = StateGenerator.generate();
         ArrayList<ACTIONS> actions = stateObs.getAvailableActions(true);
 		qTable = new QTable(states , actions, savePath);
-		qLearning = new QLearning(qTable);
+		visitedStates = new QTable(states, actions);
+		qLearning = new QLearning(qTable, visitedStates);
 		
 		//deadCounter = 0;
 	}
@@ -80,19 +81,9 @@ public class Brain {
 	public ACTIONS act(StateObservation stateObs) {
 
 		currentState.perceive(stateObs);
-		/*
-        int ticks = stateObs.getGameTick();
-        IOModule.write("./History.txt", ticks + "\n" + currentState.toString(), true);
 		
-		currentState.perceive(stateObs);
-		if(currentState.portalExist() && !currentState.isAgentDead())
-			return qTable.getBestAction(currentState);
-		else
-			return ACTIONS.ACTION_NIL; 
-		
-		*/
-		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
-		IOModule.write("./History.txt", content, true);
+//		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
+//		IOModule.write("./History.txt", content, true);
 		
 		return qTable.getBestAction(currentState);
 	}
@@ -103,6 +94,14 @@ public class Brain {
 	public void saveQTable() {
 		qLearning.saveQTable(savePath);
 	}
+	
+	/**
+	 * Save visited states information.
+	 */
+	public void saveVisitedStates() {
+		qLearning.saveVisitedStates("./VisitedStates.csv");
+	}
+	
 
 	/**
 	 * @return alpha value of the Q-learning.

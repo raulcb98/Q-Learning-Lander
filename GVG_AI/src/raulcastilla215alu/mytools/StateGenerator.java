@@ -39,7 +39,7 @@ public class StateGenerator {
 		
 		// Generation of fast values
 		combStates = addIntegerToCombination(combStates, booleanValues);
-		
+
 		return toStates(combStates);		
 	}
 	

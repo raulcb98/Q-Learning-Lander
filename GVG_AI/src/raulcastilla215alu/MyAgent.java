@@ -87,13 +87,14 @@ public class MyAgent extends AbstractPlayer {
         	brain.saveQTable();
         	System.out.println("QTable saved!");
         	
+        	brain.saveVisitedStates();
+        	
         	double time = QLearning.time;
         	double alpha = brain.getAlpha();
         	System.out.println("Time = " + time + " Alpha = " + alpha);
         	
-//        	double score = stateObs.getGameScore();
-//        	String row = Double.toString(time) + "," + Double.toString(alpha) + "," + Double.toString(score) + "\n";
-//        	IOModule.write("./time_alpha_score.csv", row, true);
+        	String row = Double.toString(time) + "," + Double.toString(alpha) + "," + Double.toString(score) + "\n";
+        	IOModule.write("./time_alpha_score.csv", row, true);
     	}
     }
 }

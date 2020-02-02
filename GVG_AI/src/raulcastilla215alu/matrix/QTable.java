@@ -43,6 +43,19 @@ public class QTable extends Matrix {
 	}
 	
 	/**
+	 * Constructor. Initializes the Qtable with zeros
+	 * 
+	 * @param states array of row index.
+	 * @param actions array of column index.
+	 */
+	public QTable(ArrayList<State> states, ArrayList<ACTIONS> actions) {
+		this.states = states;
+		this.actions = actions;
+		initializesWithZeros();
+	}
+	
+	
+	/**
 	 * Get a Q value.
 	 * 
 	 * @param s state to index the row.

@@ -598,11 +598,6 @@ public class AgentState extends State {
 		int itype2 = (arrayObs.get(pos2) != null ? arrayObs.get(pos2).itype: -1);
 		int itype3 = (arrayObs.get(pos3) != null ? arrayObs.get(pos3).itype: -1);
 		
-//		boolean output = itype1 == ITYPEBLOCK || itype2 == ITYPEBLOCK || itype3 == ITYPEBLOCK;
-//		if(contador >= 40) {
-//			System.out.println("True");
-//		} contador++;
-		
 		return itype1 == ITYPEBLOCK || itype2 == ITYPEBLOCK || itype3 == ITYPEBLOCK;
 	}
 	
@@ -620,10 +615,7 @@ public class AgentState extends State {
 			int finDown = iniDown + lengthOfVision; 
 			
 			ArrayList<Observation> downWalls = searchWalls(stateObs, iniDown, finDown, AXISY);
-//			for(int i = 0; i < downWalls.size(); i++) {
-//				System.out.print((downWalls.get(i) != null ? "B" : "_"));
-//			}
-//			System.out.println("");
+
 			this.nearestWall = null;
 			if(isCollisionPossible(downWalls, agentCellPos, AXISY)) {
 				this.nearestWall = getNearest(downWalls);
@@ -661,10 +653,7 @@ public class AgentState extends State {
 		switch (previousCompass) {
 			case State.NORTH:
 				if(dify == 0) return State.NONE;
-				if(dify < 0) {
-					System.out.println("*********************************** Obedece NORTE *****************************");
-					return State.TRUE;
-				}
+				if(dify < 0) return State.TRUE;
 				if(dify > 0) return State.FALSE;
 			case State.SOUTH:
 				if(dify == 0) return State.NONE;
