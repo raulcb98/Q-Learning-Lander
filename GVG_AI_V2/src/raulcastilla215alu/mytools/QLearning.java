@@ -4,6 +4,7 @@ import java.util.Random;
 
 import ontology.Types.ACTIONS;
 import raulcastilla215alu.matrix.QTable;
+import tools.Vector2d;
 
 /**
  *  Defines the Q-learning algorithm.
@@ -24,7 +25,7 @@ public class QLearning {
 	
 	private QTable visitedStates;
 	
-	private final float CONSTANT = 5000;
+	private final float CONSTANT = 40000;
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
@@ -32,7 +33,14 @@ public class QLearning {
 	private final float BIGREWARD = 200f;
 	
 	private final int DISTANCEFACTOR = 10;
-
+	private final int MINANGLEDIF = 12;
+	
+	private static int matchCounter = 0;
+	private static int deadCounter = 0;
+	private static int winCounter = 0;
+	private static int fastMacroCounter = 0;
+	private static int displacementMacroCounter = 0;
+	private static int correctDispMacroCounter = 0;
 	
 	/**
 	 * Constructor. Initializes the Qtable.
@@ -74,7 +82,7 @@ public class QLearning {
 	 * @return next action.
 	 */
 	public ACTIONS learn(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
-		
+
 		float sample = reward(previousState, lastAction, currentState) + gamma * qTable.getMaxQValue(currentState);
 		float newQValue = (1-alpha)*qTable.get(previousState, lastAction) + alpha*sample;
 		qTable.set(previousState, lastAction, newQValue);
@@ -96,11 +104,66 @@ public class QLearning {
 	 */
 	private float reward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
 		
-		float finalReward = 0;
-		
+		if(currentState.isAgentDead()) {
+			deadCounter++;
+			return DEADREWARD;
+		}
 
-		return finalReward;
+		if(currentState.isAgentWinner() && !previousState.isFast() && !currentState.isFast() && currentState.isAgentOverPortal()) {
+			winCounter++;
+			return WINREWARD;
+		}
+
+		if(previousState.isFast()) {
+			fastMacroCounter++;
+			return fastMacroStateReward(previousState, lastAction, currentState);
+		}
+
+		
+		if(!previousState.isDisplacementCorrect()) {
+			displacementMacroCounter++;
+			return displacementMacroStateReward(previousState, lastAction, currentState);
+		}
+
+		correctDispMacroCounter++;
+		return 3*BIGREWARD;
 	}
+	
+	
+	private float fastMacroStateReward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
+		Vector2d orientationVector = currentState.getOrientationVector();
+		Vector2d displacementVector = currentState.getDisplacementVector();
+		
+		float angle = AgentState.angleBetweenVectors(orientationVector, displacementVector);
+		float dif180 = Math.abs(angle - 180);
+		
+		if(dif180 < MINANGLEDIF) {
+			float currentSpeed = currentState.getSpeed();
+			float previousSpeed = previousState.getSpeed();
+			int signo = 1;
+			
+			if(currentSpeed > previousSpeed) signo = -1;
+			
+			return BIGREWARD/(dif180+1) + signo*3*BIGREWARD/(currentSpeed+1);
+		}
+		
+		return BIGREWARD/(dif180+1);
+	}
+	
+	
+	private float displacementMacroStateReward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
+		Vector2d orientationVector = currentState.getOrientationVector();
+		Vector2d displacementVector = currentState.getDisplacementVector();
+		Vector2d goalVector = currentState.getGoalVector();
+		
+		float angleOrientationGoal = AgentState.angleBetweenVectors(orientationVector, goalVector);
+		float angledisplacementGoal = AgentState.angleBetweenVectors(displacementVector, goalVector);
+		
+//		return BIGREWARD/(angleOrientationGoal+1) + BIGREWARD/(angledisplacementGoal+1);
+		return BIGREWARD/(angledisplacementGoal+1);
+	}
+
+	
 	
 	/**
 	 * Return the next action taking into acount an 
@@ -136,4 +199,16 @@ public class QLearning {
 	public float getAlpha() {
 		return alpha;
 	}
+	
+	
+	public void showCounters() {
+		matchCounter++;
+		System.out.println("Match counter = " + matchCounter + "\n" +
+						   "Dead counter = " + deadCounter + "\n" +
+						   "Win counter = " + winCounter + "\n" + 
+						   "Fast macro counter = " + fastMacroCounter + "\n" + 
+						   "Displacement macro counter = " + displacementMacroCounter + "\n" + 
+						   "Correct displacement counter = " + correctDispMacroCounter + "\n");
+	}
+	
 }

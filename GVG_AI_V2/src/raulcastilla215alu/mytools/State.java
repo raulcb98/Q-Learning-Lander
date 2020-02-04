@@ -39,7 +39,7 @@ public class State {
 	 * Default constructor.
 	 */
 	public State() {
-		
+		this.fast = FALSE;
 	}
 	
 	
@@ -72,8 +72,8 @@ public class State {
 	 * @param array Updates private attributes values.
 	 */
 	protected void update(ArrayList<Integer> array) {
-		this.orientation = array.get(POSORIENTATION);
-		this.displacement = array.get(POSDISPLACEMENT);
+		this.orientation = array.get(POSORIENTATION) % NUMZONEVALUES;
+		this.displacement = array.get(POSDISPLACEMENT) % NUMZONEVALUES;
 		this.goal = array.get(POSGOAL);
 		this.fast = array.get(POSFAST);
 	}

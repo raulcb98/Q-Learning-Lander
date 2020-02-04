@@ -83,8 +83,7 @@ public class Brain {
 		String content = "Ticks = " + stateObs.getGameTick() + "\n" + currentState.toString();
 		IOModule.write("./History.txt", content, true);
 		
-//		return qTable.getBestAction(currentState);
-		return ACTIONS.ACTION_RIGHT;
+		return qTable.getBestAction(currentState);
 	}
 	
 	/**
@@ -107,6 +106,11 @@ public class Brain {
 	 */
 	public float getAlpha() {
 		return this.qLearning.getAlpha();
+	}
+	
+	
+	public void showQLearningCounters() {
+		qLearning.showCounters();
 	}
 	
 }

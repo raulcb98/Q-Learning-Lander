@@ -22,15 +22,23 @@ public class AgentState extends State {
 	private Vector2d portalCellPos;
 	private Vector2d agentRealPos;
 	private Vector2d portalRealPos;
+	
 	private float orientationRad;
+	
+	private Vector2d orientationVector;
+	private Vector2d displacementVector;
+	private Vector2d goalVector;
+	private float speed;
 	
 	private boolean agentDead;
 	private boolean agentWinner;
+	
 	private int blockSize;
 	private double score;
 	
 	private float angle_diff = 0.2f;
-	private float speed_limit = 5.5f;     //9.35f;
+	private float min_speed_limit = 4.5f;     //9.35f;
+	private float max_speed_limit = 6f;
 	
 	public static final int ITYPEPORTAL = 2; //itype of portal.
 	public static final int ITYPEPLAYER = 1; //itype of player.
@@ -50,6 +58,8 @@ public class AgentState extends State {
 	
 	public static final int STEP = 36;
 	
+	private Vector2d defaultVector;
+	
 	/**
 	 * Constructor.
 	 * @param stateObs game observations.
@@ -58,6 +68,9 @@ public class AgentState extends State {
 		orientationRad = 0;
 		blockSize = stateObs.getBlockSize();
 		score = stateObs.getGameScore();
+		
+		defaultVector = new Vector2d(0,-1);
+
 		perceive(stateObs);
 	}
 	
@@ -80,6 +93,11 @@ public class AgentState extends State {
 			this.portalRealPos = new Vector2d(obj.portalRealPos);
 		}
 		
+		this.orientationVector = obj.orientationVector;
+		this.displacementVector = obj.displacementVector;
+		this.goalVector = obj.goalVector;
+		this.speed = obj.speed;
+		
 		this.orientationRad = obj.orientationRad;
 		this.score = obj.score;
 		this.blockSize = obj.blockSize;
@@ -97,9 +115,14 @@ public class AgentState extends State {
 		// AgentState attributes
 		agentRealPos = stateObs.getAvatarPosition();
 		agentCellPos = calculateCell(agentRealPos, stateObs.getBlockSize());	
+		
+		speed = (float)stateObs.getAvatarSpeed();
+		
 		score = stateObs.getGameScore();
+		
 		agentDead = false;
 		agentWinner = false;
+		
 		if(this.portalCellPos == null) {
 			updatePortalPos(stateObs);
 		}
@@ -283,7 +306,7 @@ public class AgentState extends State {
 	 * @return middle neighbor.
 	 */
 	private Observation getMiddleNeighbor(ArrayList<Observation> arrayNeighbors) {
-		int index = Math.round(arrayNeighbors.size()/2-1);
+		int index = Math.round(arrayNeighbors.size()/2);
 		return arrayNeighbors.get(index);
 	}
 	
@@ -311,6 +334,12 @@ public class AgentState extends State {
 		if(degrees < 0) {
 			degrees += 360;
 		}
+		
+		double x = Math.cos(Math.toRadians(degrees));
+		double y = Math.sin(Math.toRadians(degrees));
+		
+		this.orientationVector = new Vector2d(x,y);
+		
 		return (int)(degrees/STEP);
 	}
 	
@@ -347,10 +376,16 @@ public class AgentState extends State {
 	 * @return current displacement.
 	 */
 	private int perceiveDisplacement(StateObservation stateObs) {
-		Vector2d dir = stateObs.getAvatarOrientation();
-		dir.set(dir.x, -dir.y);
+		this.displacementVector = stateObs.getAvatarOrientation();
+
+		displacementVector.set(displacementVector.x, -displacementVector.y);
 		
-		float degrees = calculateDegreesFromVector((float)dir.x, (float)dir.y);
+		if(displacementVector.x == 0 && displacementVector.y == 0) {
+			this.displacementVector = this.defaultVector;
+		}
+		
+		
+		float degrees = calculateDegreesFromVector((float)displacementVector.x, (float)displacementVector.y);
 		return (int)(degrees/STEP);
 	}
 	
@@ -370,7 +405,9 @@ public class AgentState extends State {
 		x = x/norma;
 		y = y/norma;
 		
-		float degrees = calculateDegreesFromVector((float)x, (float)y);
+		this.goalVector = new Vector2d(x,y);
+		
+		float degrees = calculateDegreesFromVector((float)goalVector.x, (float)goalVector.y);
 		int goalRegion = (int)(degrees/STEP);
 	
 		return (goalRegion == displacementRegion ? State.TRUE : State.FALSE);
@@ -383,7 +420,10 @@ public class AgentState extends State {
 	 * @return True if the avatar moves fast.
 	 */
 	private int perceiveFast(StateObservation stateObs) {
-		return (stateObs.getAvatarSpeed() > speed_limit ? State.TRUE : State.FALSE);
+		if(this.fast == FALSE) 
+			return (stateObs.getAvatarSpeed() > max_speed_limit ? State.TRUE : State.FALSE);
+		else 
+			return (stateObs.getAvatarSpeed() > min_speed_limit ? State.TRUE : State.FALSE);
 	}
 	
 	
@@ -430,6 +470,45 @@ public class AgentState extends State {
 			return (float)Math.abs(this.agentRealPos.x - this.portalRealPos.x);
 		else
 			return (float)Math.abs(this.agentRealPos.y - this.portalRealPos.y);
+	}
+	
+	
+	/**
+	 * Calculate the angle between two vectors and return the result in degrees.
+	 * 
+	 * @param vectorA VectorA.
+	 * @param vectorB VectorB.
+	 * @return angle in degrees.
+	 */
+	public static float angleBetweenVectors(Vector2d vectorA, Vector2d vectorB) {
+		double sum = vectorA.x * vectorB.x + vectorA.y * vectorB.y;
+		double modA = Math.sqrt(vectorA.x*vectorA.x + vectorA.y*vectorA.y);
+		double modB = Math.sqrt(vectorB.x*vectorB.x + vectorB.y*vectorB.y);
+		double argument = sum/(modA*modB);
+		double degrees = Math.toDegrees(Math.acos(argument));
+
+		return (float)degrees;
+	}
+	
+	
+	/**
+	 * Return true if A is over B.
+	 * @param posA Left element of the comparison.
+	 * @param posB Right element of the comparison.
+	 * @return true if A is over B.
+	 */
+	private static boolean overPosition(Vector2d posA, Vector2d posB) {
+		return posA.x == posB.x && posA.y < posB.y;
+	}
+	
+	
+	/**
+	 * True if the agent is over the portal.
+	 * 
+	 * @return True if the agent is over the portal.
+	 */
+	public boolean isAgentOverPortal() {
+		return overPosition(this.agentCellPos, this.portalCellPos);
 	}
 	
 	
@@ -522,6 +601,46 @@ public class AgentState extends State {
 		return fast == TRUE;
 	}
 	
+	
+	/** 
+	 * @return Orientation vector.
+	 */
+	public Vector2d getOrientationVector() {
+		return this.orientationVector;
+	}
+	
+	
+	/**
+	 * @return Displacement vector.
+	 */
+	public Vector2d getDisplacementVector() {
+		return this.displacementVector;
+	}
+	
+	
+	/**
+	 * @return Goal vector.
+	 */
+	public Vector2d getGoalVector() {
+		return this.goalVector;
+	}
+	
+	
+	/**
+	 * @return Agent speed.
+	 */
+	public float getSpeed() {
+		return this.speed;
+	}
+	
+	
+	/**
+	 * @return True if displacement is in the direction of the goal.
+	 */
+	public boolean isDisplacementCorrect() {
+		return goal == TRUE;
+	}
+	
 
 	/*
 	public static void testDisplacement() {
@@ -585,11 +704,42 @@ public class AgentState extends State {
 		System.out.println("x = " + x + " y = " + y + "(300) -> " + calculateDegreesFromVector(x, y));
 		System.out.println("\n");
 	}
-	
+
+
+	public static void testAngleBetweenVectors() {
+		Vector2d vectorA;
+		Vector2d vectorB;
+		float degrees;
+		
+		vectorA = new Vector2d(3,0);
+		vectorB = new Vector2d(5,5);
+		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
+		System.out.println("Angle (45º) = " + degrees);
+		
+		
+		vectorA = new Vector2d(3,4);
+		vectorB = new Vector2d(-8,6);
+		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
+		System.out.println("Angle (90º) = " + degrees);
+		
+		
+		vectorA = new Vector2d(5,6);
+		vectorB = new Vector2d(-1,4);
+		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
+		System.out.println("Angle (53º 50') = " + degrees);
+		
+		
+		vectorA = new Vector2d(3,5);
+		vectorB = new Vector2d(-1,6);
+		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
+		System.out.println("Angle (40º 26') = " + degrees);
+		
+	}
 
 	
 	public static void main(String[] args) {
-		testDisplacement();
+//		testDisplacement();
+		testAngleBetweenVectors();
 	}
-	 */
+	*/
 }

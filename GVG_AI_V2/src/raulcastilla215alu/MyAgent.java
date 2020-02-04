@@ -89,9 +89,11 @@ public class MyAgent extends AbstractPlayer {
         	
 //        	brain.saveVisitedStates();
 //        	
-//        	double time = QLearning.time;
-//        	double alpha = brain.getAlpha();
-//        	System.out.println("Time = " + time + " Alpha = " + alpha);
+        	double time = QLearning.time;
+        	double alpha = brain.getAlpha();
+        	System.out.println("Time = " + time + " Alpha = " + alpha);
+        	
+        	brain.showQLearningCounters();
 //        	
 //        	String row = Double.toString(time) + "," + Double.toString(alpha) + "," + Double.toString(score) + "\n";
 //        	IOModule.write("./time_alpha_score.csv", row, true);
