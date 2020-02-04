@@ -10,6 +10,7 @@ import java.io.PrintWriter;
  */
 public class IOModule {
 
+	
 	/**
 	 * Writes the content in the path.
 	 * 

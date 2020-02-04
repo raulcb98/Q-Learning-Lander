@@ -1,25 +1,17 @@
 package raulcastilla215alu;
 
-import java.awt.Graphics2D;
+
 import java.util.ArrayList;
 import java.util.Random;
 
-import core.game.Game;
-import core.game.Observation;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import ontology.Types;
-import ontology.Types.ACTIONS;
-import raulcastilla215alu.matrix.QTable;
-import raulcastilla215alu.mytools.AgentState;
 import raulcastilla215alu.mytools.Brain;
 import raulcastilla215alu.mytools.IOModule;
 import raulcastilla215alu.mytools.QLearning;
-import raulcastilla215alu.mytools.StateGenerator;
 import tools.ElapsedCpuTimer;
-import tools.Vector2d;
-import raulcastilla215alu.mytools.State;;
- 
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -35,14 +27,21 @@ public class MyAgent extends AbstractPlayer {
      * Random generator for the agent.
      */
     protected Random randomGenerator;
+    
+    
     /**
      * List of available actions for the agent
      */
     protected ArrayList<Types.ACTIONS> actions;
 
+    
+    /*
+     * Private atributtes.
+     */
     private Brain brain;
     private StateObservation stateObs;
     private boolean isLearning;
+    
     
     /**
      * Public constructor with state observation and time due.
@@ -80,6 +79,12 @@ public class MyAgent extends AbstractPlayer {
 
     }
     
+    
+    /**
+     * Actions before close the agent.
+     * 
+     * @param score Game score.
+     */
     public void close(double score) {
     	if(isLearning) {
         	brain.learnLastAction(score);

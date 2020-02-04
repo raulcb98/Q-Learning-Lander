@@ -1,0 +1,5 @@
+Apollo_1 -> lander_slow_cellDistance (Versión de estados 2)
+Apollo_2 -> lander_slow_realDistance (Versión de estados 2)
+
+Apollo_3 -> first_lander           (Versión de estados 3)
+Apollo_4 -> desplazamiento_lateral (Versión de estados 3)

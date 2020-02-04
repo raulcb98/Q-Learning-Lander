@@ -53,6 +53,7 @@ public class AgentState extends State {
 	
 	public static final int DEFAULTWALLDISTANCE = 10;
 	
+	
 	/**
 	 * Constructor.
 	 * @param stateObs game observations.
@@ -906,75 +907,4 @@ public class AgentState extends State {
 	public int getCompass() {
 		return this.compass;
 	}
-	
-	
-	/*
-	public static void testDisplacement() {
-		float x;
-		float y;
-		
-		// Primer cuadrante
-		x = 0.5f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(45) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.5f;
-		y = 0.289f;
-		System.out.println("x = " + x + " y = " + y + "(30) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.289f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(60) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-		
-		// Segundo cuadrante
-		x = -0.5f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(135) -> " + calculateDegreesFromVector(x, y));
-		
-		x = -0.5f;
-		y = 0.289f;
-		System.out.println("x = " + x + " y = " + y + "(150) -> " + calculateDegreesFromVector(x, y));
-		
-		
-		x = -0.289f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(120) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-		
-		// Tercer cuadrante
-		x = -0.5f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(225) -> " + calculateDegreesFromVector(x, y));
-		
-		x = -0.5f;
-		y = -0.289f;
-		System.out.println("x = " + x + " y = " + y + "(210) -> " + calculateDegreesFromVector(x, y));
-		
-		x = -0.289f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(240) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-		
-		// Cuarto cuadrante
-		x = 0.5f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(315) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.5f;
-		y = -0.289f;
-		System.out.println("x = " + x + " y = " + y + "(330) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.289f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(300) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-	}
-	
-
-	
-	public static void main(String[] args) {
-		testDisplacement();
-	}
-	 */
 }

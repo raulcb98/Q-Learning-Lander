@@ -60,6 +60,7 @@ public class AgentState extends State {
 	
 	private Vector2d defaultVector;
 	
+	
 	/**
 	 * Constructor.
 	 * @param stateObs game observations.
@@ -641,105 +642,4 @@ public class AgentState extends State {
 		return goal == TRUE;
 	}
 	
-
-	/*
-	public static void testDisplacement() {
-		float x;
-		float y;
-		
-		// Primer cuadrante
-		x = 0.5f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(45) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.5f;
-		y = 0.289f;
-		System.out.println("x = " + x + " y = " + y + "(30) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.289f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(60) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-		
-		// Segundo cuadrante
-		x = -0.5f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(135) -> " + calculateDegreesFromVector(x, y));
-		
-		x = -0.5f;
-		y = 0.289f;
-		System.out.println("x = " + x + " y = " + y + "(150) -> " + calculateDegreesFromVector(x, y));
-		
-		
-		x = -0.289f;
-		y = 0.5f;
-		System.out.println("x = " + x + " y = " + y + "(120) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-		
-		// Tercer cuadrante
-		x = -0.5f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(225) -> " + calculateDegreesFromVector(x, y));
-		
-		x = -0.5f;
-		y = -0.289f;
-		System.out.println("x = " + x + " y = " + y + "(210) -> " + calculateDegreesFromVector(x, y));
-		
-		x = -0.289f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(240) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-		
-		// Cuarto cuadrante
-		x = 0.5f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(315) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.5f;
-		y = -0.289f;
-		System.out.println("x = " + x + " y = " + y + "(330) -> " + calculateDegreesFromVector(x, y));
-		
-		x = 0.289f;
-		y = -0.5f;
-		System.out.println("x = " + x + " y = " + y + "(300) -> " + calculateDegreesFromVector(x, y));
-		System.out.println("\n");
-	}
-
-
-	public static void testAngleBetweenVectors() {
-		Vector2d vectorA;
-		Vector2d vectorB;
-		float degrees;
-		
-		vectorA = new Vector2d(3,0);
-		vectorB = new Vector2d(5,5);
-		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
-		System.out.println("Angle (45º) = " + degrees);
-		
-		
-		vectorA = new Vector2d(3,4);
-		vectorB = new Vector2d(-8,6);
-		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
-		System.out.println("Angle (90º) = " + degrees);
-		
-		
-		vectorA = new Vector2d(5,6);
-		vectorB = new Vector2d(-1,4);
-		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
-		System.out.println("Angle (53º 50') = " + degrees);
-		
-		
-		vectorA = new Vector2d(3,5);
-		vectorB = new Vector2d(-1,6);
-		degrees = AgentState.angleBetweenVectors(vectorA, vectorB);
-		System.out.println("Angle (40º 26') = " + degrees);
-		
-	}
-
-	
-	public static void main(String[] args) {
-//		testDisplacement();
-		testAngleBetweenVectors();
-	}
-	*/
 }

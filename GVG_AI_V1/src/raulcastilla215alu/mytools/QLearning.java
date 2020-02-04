@@ -47,6 +47,7 @@ public class QLearning {
 		
 	}
 	
+	
 	/**
 	 * Save the Qtable information into CSV format.
 	 * 
@@ -56,6 +57,7 @@ public class QLearning {
 		qTable.toCSV(path);
 	}
 	
+	
 	/**
 	 * Save the visitedStates information into CSV format.
 	 * 
@@ -64,6 +66,7 @@ public class QLearning {
 	public void saveVisitedStates(String path) {
 		visitedStates.toCSV(path);
 	}
+	
 	
 	/**
 	 * Execute the Q-learning formula.
@@ -85,6 +88,7 @@ public class QLearning {
 		
 		return nextAction(currentState);
 	}
+	
 	
 	/**
 	 * Reward function.
@@ -117,7 +121,7 @@ public class QLearning {
 
 		
 		// Distance reward
-		float previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
+//		float previousDistanceAxisX = previousState.distanceToPortal(AgentState.AXISY);
 		float distanceAxisX = currentState.distanceToPortal(AgentState.AXISX);
 		int signo = 1;
 //		if(distanceAxisX > previousDistanceAxisX) signo = -1;
@@ -140,6 +144,7 @@ public class QLearning {
 		return finalReward;
 	}
 	
+	
 	/**
 	 * Return the next action taking into acount an 
 	 * exploration policity.
@@ -157,6 +162,7 @@ public class QLearning {
 			return qTable.getBestAction(currentState);
 		}
 	}
+	
 	
 	/**
 	 * Update Q-learning constants.

@@ -6598,3 +6598,2073 @@ Portal position = 14.0 : 16.0
 Orientation value = 80.214096
 ************************** 
 
+Ticks = 0
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 1
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 2
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 3
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 4
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 5
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 6
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 7
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 8
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 9
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 10
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 11
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 12
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 13
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 14
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 15
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 16
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 17
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 18
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 19
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 20
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 21
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 22
+Orientation = 9
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 23
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 24
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 25
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 26
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 27
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 28
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 29
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 30
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 31
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 32
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 33
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 34
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 35
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 36
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 37
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 38
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 39
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 1
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 2
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 3
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 4
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 5
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 6
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 7
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 8
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 9
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 10
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 11
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 12
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 13
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 14
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 15
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 16
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 2.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 17
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 18
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 19
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 20
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 21
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 22
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 3.0
+Portal position = 14.0 : 10.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 23
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 11.459156
+************************** 
+
+Ticks = 24
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 22.918312
+************************** 
+
+Ticks = 25
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 34.37747
+************************** 
+
+Ticks = 26
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 4.0
+Portal position = 14.0 : 10.0
+Orientation value = 45.836624
+************************** 
+
+Ticks = 27
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 57.29578
+************************** 
+
+Ticks = 28
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 29
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 30
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 5.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 31
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 32
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 33
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 34
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 35
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 36
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 37
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 6.0
+Portal position = 14.0 : 10.0
+Orientation value = 57.29578
+************************** 
+
+Ticks = 38
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 45.836624
+************************** 
+
+Ticks = 39
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 34.37747
+************************** 
+
+Ticks = 40
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = false
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 34.37747
+************************** 
+
+Ticks = 41
+Orientation = 0
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 34.37747
+************************** 
+
+Ticks = 42
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 45.836624
+************************** 
+
+Ticks = 43
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 7.0
+Portal position = 14.0 : 10.0
+Orientation value = 57.29578
+************************** 
+
+Ticks = 44
+Orientation = 1
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 45
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 46
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 47
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 48
+Orientation = 2
+Displacement = 7
+Goal = true
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 49
+Orientation = 2
+Displacement = 8
+Goal = false
+Fast = true
+Agent position = 14.0 : 8.0
+Portal position = 14.0 : 10.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 0
+Orientation = 0
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 1
+Orientation = 9
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 2
+Orientation = 9
+Displacement = 9
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 3
+Orientation = 9
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = -11.459156
+************************** 
+
+Ticks = 4
+Orientation = 0
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 0.0
+************************** 
+
+Ticks = 5
+Orientation = 0
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 11.459156
+************************** 
+
+Ticks = 6
+Orientation = 0
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 22.918312
+************************** 
+
+Ticks = 7
+Orientation = 0
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 34.37747
+************************** 
+
+Ticks = 8
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 45.836624
+************************** 
+
+Ticks = 9
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 57.29578
+************************** 
+
+Ticks = 10
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 11
+Orientation = 2
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 12
+Orientation = 1
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 13
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 14
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 15
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 16
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 17
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 18
+Orientation = 2
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 19
+Orientation = 1
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 20
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 3.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 21
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 22
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 23
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 24
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 25
+Orientation = 2
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 26
+Orientation = 1
+Displacement = 7
+Goal = false
+Fast = true
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 27
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 6.0 : 4.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 28
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 29
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 30
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 31
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 32
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 33
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 34
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 6.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 35
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 5.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 36
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 37
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 38
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 39
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 40
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 41
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 42
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 43
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 44
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 6.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 45
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 46
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 47
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 7.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 48
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 8.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 49
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 8.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 50
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 8.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 51
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 8.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 52
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 8.0 : 7.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 53
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 8.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 54
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = true
+Agent position = 8.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 55
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = true
+Agent position = 8.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 91.673256
+************************** 
+
+Ticks = 56
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 8.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 57
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = false
+Agent position = 8.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 58
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 91.673256
+************************** 
+
+Ticks = 59
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 60
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 61
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 62
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 63
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 64
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 9.0 : 8.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 65
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 9.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 66
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 9.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 67
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 9.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 68
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = true
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 69
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = true
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 91.673256
+************************** 
+
+Ticks = 70
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 71
+Orientation = 2
+Displacement = 9
+Goal = false
+Fast = true
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 72
+Orientation = 3
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 73
+Orientation = 3
+Displacement = 9
+Goal = false
+Fast = false
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 114.591576
+************************** 
+
+Ticks = 74
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 75
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 10.0 : 9.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 76
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 77
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 78
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 79
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 80
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 81
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 82
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 83
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 84
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 85
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 10.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 86
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 11.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 87
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 88
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 89
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 90
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 91
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 92
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 93
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 12.0 : 11.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 94
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 95
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 96
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 97
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 98
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 99
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 100
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 101
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 12.0 : 12.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 102
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 103
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 104
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 105
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 106
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 107
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 108
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 13.0 : 13.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 109
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 110
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = false
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 111
+Orientation = 2
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 103.132416
+************************** 
+
+Ticks = 112
+Orientation = 2
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 91.673256
+************************** 
+
+Ticks = 113
+Orientation = 2
+Displacement = 7
+Goal = false
+Fast = false
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+
+Ticks = 114
+Orientation = 1
+Displacement = 7
+Goal = false
+Fast = true
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 115
+Orientation = 1
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 68.75494
+************************** 
+
+Ticks = 116
+Orientation = 2
+Displacement = 8
+Goal = true
+Fast = true
+Agent position = 13.0 : 14.0
+Portal position = 14.0 : 16.0
+Orientation value = 80.214096
+************************** 
+

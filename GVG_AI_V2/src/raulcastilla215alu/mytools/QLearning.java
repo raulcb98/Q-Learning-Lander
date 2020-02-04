@@ -29,10 +29,10 @@ public class QLearning {
 	
 	private final float WINREWARD = 2000f;
 	private final float DEADREWARD = -2000f;
-	private final float SIMPLEREWARD = 100f;
+//	private final float SIMPLEREWARD = 100f;
 	private final float BIGREWARD = 200f;
 	
-	private final int DISTANCEFACTOR = 10;
+//	private final int DISTANCEFACTOR = 10;
 	private final int MINANGLEDIF = 12;
 	
 	private static int matchCounter = 0;
@@ -41,6 +41,7 @@ public class QLearning {
 	private static int fastMacroCounter = 0;
 	private static int displacementMacroCounter = 0;
 	private static int correctDispMacroCounter = 0;
+	
 	
 	/**
 	 * Constructor. Initializes the Qtable.
@@ -55,6 +56,7 @@ public class QLearning {
 		
 	}
 	
+	
 	/**
 	 * Save the Qtable information into CSV format.
 	 * 
@@ -64,6 +66,7 @@ public class QLearning {
 		qTable.toCSV(path);
 	}
 	
+	
 	/**
 	 * Save the visitedStates information into CSV format.
 	 * 
@@ -72,6 +75,7 @@ public class QLearning {
 	public void saveVisitedStates(String path) {
 		visitedStates.toCSV(path);
 	}
+	
 	
 	/**
 	 * Execute the Q-learning formula.
@@ -88,11 +92,11 @@ public class QLearning {
 		qTable.set(previousState, lastAction, newQValue);
 		
 		visitedStates.set(previousState, lastAction, visitedStates.get(previousState, lastAction) + 1);
-		
 		updateConstants();
 		
 		return nextAction(currentState);
 	}
+	
 	
 	/**
 	 * Reward function.
@@ -130,6 +134,14 @@ public class QLearning {
 	}
 	
 	
+	/**
+	 * Reward if the agent is fast.
+	 * 
+	 * @param previousState previous state.
+	 * @param lastAction last action.
+	 * @param currentState current state.
+	 * @return reward.
+	 */
 	private float fastMacroStateReward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
 		Vector2d orientationVector = currentState.getOrientationVector();
 		Vector2d displacementVector = currentState.getDisplacementVector();
@@ -151,19 +163,26 @@ public class QLearning {
 	}
 	
 	
+	/**
+	 * Reward if the agent displacement is wrong.
+	 * 
+	 * @param previousState previous state.
+	 * @param lastAction last action.
+	 * @param currentState current state.
+	 * @return reward.
+	 */
 	private float displacementMacroStateReward(AgentState previousState, ACTIONS lastAction, AgentState currentState) {
-		Vector2d orientationVector = currentState.getOrientationVector();
+//		Vector2d orientationVector = currentState.getOrientationVector();
 		Vector2d displacementVector = currentState.getDisplacementVector();
 		Vector2d goalVector = currentState.getGoalVector();
 		
-		float angleOrientationGoal = AgentState.angleBetweenVectors(orientationVector, goalVector);
+//		float angleOrientationGoal = AgentState.angleBetweenVectors(orientationVector, goalVector);
 		float angledisplacementGoal = AgentState.angleBetweenVectors(displacementVector, goalVector);
 		
 //		return BIGREWARD/(angleOrientationGoal+1) + BIGREWARD/(angledisplacementGoal+1);
 		return BIGREWARD/(angledisplacementGoal+1);
 	}
 
-	
 	
 	/**
 	 * Return the next action taking into acount an 
@@ -183,6 +202,7 @@ public class QLearning {
 		}
 	}
 	
+	
 	/**
 	 * Update Q-learning constants.
 	 */
@@ -193,6 +213,7 @@ public class QLearning {
 		time++;
 	}
 	
+	
 	/**
 	 * @return learning factor.
 	 */
@@ -201,6 +222,9 @@ public class QLearning {
 	}
 	
 	
+	/**
+	 * Show Q-Learning counters.
+	 */
 	public void showCounters() {
 		matchCounter++;
 		System.out.println("Match counter = " + matchCounter + "\n" +
@@ -210,5 +234,4 @@ public class QLearning {
 						   "Displacement macro counter = " + displacementMacroCounter + "\n" + 
 						   "Correct displacement counter = " + correctDispMacroCounter + "\n");
 	}
-	
 }

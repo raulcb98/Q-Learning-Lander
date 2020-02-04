@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class StateGenerator {
 	
+	
 	/**
 	 * Generates all possible and logical agent state.
 	 * @return An array of states.
@@ -67,6 +68,7 @@ public class StateGenerator {
 		return output;
 	}
 	
+	
 	/**
 	 * Create states for each combination.
 	 * 
@@ -98,6 +100,7 @@ public class StateGenerator {
 		return combnkRec(length-1, values, new ArrayList<ArrayList<Integer>>());
 	}
 	
+	
 	/**
 	 * Recursive call for combnk.
 	 * 
@@ -128,34 +131,4 @@ public class StateGenerator {
 		}
 		return output;				
 	}
-	
-	/**
-	 * Removes illogical states.
-	 * 
-	 * @param combStates an array of arrays of integers with all possible combinations.
-	 */
-	private static void filterStates(ArrayList<ArrayList<Integer>> combStates){
-		for(int i = 0; i < combStates.size(); i++ ) {
-			if(!isValid(combStates.get(i))) {
-				combStates.remove(i);
-				i--;
-			}
-		}
-	}
-
-	/**
-	 * Applies restrictions to filter a state.
-	 * 
-	 * @param comb array of integers with one combination of values.
-	 * @return true if overcomes all restrictions.
-	 */
-	private static boolean isValid(ArrayList<Integer> comb) {
-		return true;	
-	}
-	
-	public static void main(String[] args) {
-		System.out.println("Longitud = " + StateGenerator.generate().size());
-//		System.out.println(StateGenerator.generate());
-	}
-	
 }

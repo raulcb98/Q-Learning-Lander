@@ -1,7 +1,6 @@
 package raulcastilla215alu.mytools;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import core.game.StateObservation;
 import ontology.Types.ACTIONS;
@@ -26,6 +25,7 @@ public class Brain {
 	private QTable qTable;
 	private QTable visitedStates;
 	
+	
 	/**
 	 * Constructor. Initializes the brain with the observations introduced by parameters.
 	 * 
@@ -45,6 +45,7 @@ public class Brain {
 		qLearning = new QLearning(qTable, visitedStates);
 	}
 	
+	
 	/**
 	 * Perceive the information of the game and learn.
 	 * 
@@ -59,6 +60,12 @@ public class Brain {
 		return lastAction;
 	}
 	
+	
+	/**
+	 * Learns of the last action of the agent in the game.
+	 * 
+	 * @param score Final game score.
+	 */
 	public void learnLastAction(double score) {
 		if(score == 0) {
 			currentState.setAgentDead(true);
@@ -69,6 +76,7 @@ public class Brain {
 		}
 		qLearning.learn(previousState, lastAction, currentState);
 	}
+	
 	
 	/**
 	 * Perceive the information of the game and return the best action.
@@ -86,12 +94,14 @@ public class Brain {
 		return qTable.getBestAction(currentState);
 	}
 	
+	
 	/**
 	 * Save the Qtable information.
 	 */
 	public void saveQTable() {
 		qLearning.saveQTable(savePath);
 	}
+	
 	
 	/**
 	 * Save visited states information.
@@ -109,8 +119,10 @@ public class Brain {
 	}
 	
 	
+	/**
+	 * Show Q-Learning counters.
+	 */
 	public void showQLearningCounters() {
 		qLearning.showCounters();
 	}
-	
 }
